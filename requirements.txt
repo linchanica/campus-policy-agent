@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+httpx
+numpy
+rank-bm25
+qdrant-client
+fastembed
+mcp
+python-docx
+pypdf
+pytest
+transformers>=4.57,<5
+torch>=2.6
+

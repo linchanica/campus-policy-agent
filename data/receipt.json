@@ -1,0 +1,17 @@
+{
+  "received_at": "2026-10-31T03:18:51.832298+08:00",
+  "archive_name": "人工智能学院、马院官网文件(1).zip",
+  "archive_sha256": "7e7397d3075798251dac9e8fbd641e9f277641baf1d2091eb5991fa26352c7bd",
+  "archive_preserved": "data/source/provided-policies.zip",
+  "files_count": 45,
+  "unique_binary_count": 44,
+  "parsed_count": 45,
+  "duplicates": [
+    {
+      "copy": "p037",
+      "same_content_as": "p025"
+    }
+  ],
+  "originals_overwritten": false,
+  "business_review_complete": false
+}

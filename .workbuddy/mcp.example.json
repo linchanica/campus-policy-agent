@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "campus-policy": {
+      "command": "<PROJECT_ROOT>/.venv/Scripts/python.exe",
+      "args": ["<PROJECT_ROOT>/scripts/run_mcp.py"]
+    }
+  }
+}

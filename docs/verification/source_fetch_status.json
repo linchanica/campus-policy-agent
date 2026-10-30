@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-10-31T03:18:51.832298+08:00",
+  "attempts": [
+    {
+      "url": "https://sai.whu.edu.cn/",
+      "result": "web_fetch_403"
+    },
+    {
+      "url": "https://marx.whu.edu.cn/",
+      "result": "web_fetch_403"
+    }
+  ],
+  "exact_policy_origin_verified": false,
+  "missing_attachments_obtained": false,
+  "note": "搜索未取得与副本完全对应的可核验原文；不使用其他学院或其他同名奖项的附件补造本项目依据。"
+}

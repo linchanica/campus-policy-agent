@@ -1,0 +1,16 @@
+.venv/
+node_modules/
+.env
+work/
+models/
+data/raw/
+data/converted/
+data/source/
+.workbuddy/mcp.json
+frontend/student/dist/
+__pycache__/
+.pytest_cache/
+*.pyc
+docs/verification/code_version.json
+docs/package_manifest.json
+

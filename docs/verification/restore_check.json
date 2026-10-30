@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "created_at": "2026-10-31T03:18:09.815102+08:00",
+  "snapshot": "20261031_031808_061372",
+  "files_verified": 176,
+  "restored_documents": 45,
+  "restored_sessions": 2,
+  "vector_chunks": 93,
+  "restored_code_doctor_passed": true,
+  "live_runtime_overwritten": false,
+  "model_inference_retested": false,
+  "scope": "实际复制到隔离目录，检查数据库与外键、原件、标准文本、向量快照，并从恢复源码运行 doctor；不是正式环境切换或模型权重恢复验收。",
+  "duration_ms": 978
+}

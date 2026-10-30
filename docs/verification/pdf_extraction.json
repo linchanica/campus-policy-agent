@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "file": "p050.pdf",
+      "pages": 4,
+      "text_chars_by_page": [
+        158,
+        499,
+        516,
+        326
+      ],
+      "pages_without_text": []
+    }
+  ],
+  "visual_and_business_review_complete": false
+}

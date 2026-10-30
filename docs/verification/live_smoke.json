@@ -1,0 +1,228 @@
+{
+  "base": "http://127.0.0.1:8000",
+  "fixture": "fictional_student",
+  "checks": [
+    {
+      "name": "health_ready",
+      "pass": true
+    },
+    {
+      "name": "compiled_h5_served",
+      "pass": true
+    },
+    {
+      "name": "guest_expiry_declared",
+      "pass": true
+    },
+    {
+      "name": "anonymous_session_denied",
+      "pass": true
+    },
+    {
+      "name": "other_guest_denied",
+      "pass": true
+    },
+    {
+      "name": "accepted_0",
+      "pass": true
+    },
+    {
+      "name": "completed_0",
+      "pass": true
+    },
+    {
+      "name": "real_source_ids_1",
+      "pass": true
+    },
+    {
+      "name": "model_quote_grounded_1",
+      "pass": true
+    },
+    {
+      "name": "idempotent_1",
+      "pass": true
+    },
+    {
+      "name": "two_rank_rule",
+      "pass": true
+    },
+    {
+      "name": "current_deadline_closed",
+      "pass": true
+    },
+    {
+      "name": "local_model_really_used",
+      "pass": true
+    },
+    {
+      "name": "accepted_1",
+      "pass": true
+    },
+    {
+      "name": "completed_1",
+      "pass": true
+    },
+    {
+      "name": "real_source_ids_2",
+      "pass": true
+    },
+    {
+      "name": "model_quote_grounded_2",
+      "pass": true
+    },
+    {
+      "name": "idempotent_2",
+      "pass": true
+    },
+    {
+      "name": "correction_recomputed",
+      "pass": true
+    },
+    {
+      "name": "accepted_2",
+      "pass": true
+    },
+    {
+      "name": "completed_2",
+      "pass": true
+    },
+    {
+      "name": "real_source_ids_3",
+      "pass": true
+    },
+    {
+      "name": "model_quote_grounded_3",
+      "pass": true
+    },
+    {
+      "name": "idempotent_3",
+      "pass": true
+    },
+    {
+      "name": "conflicting_identity_not_overwritten",
+      "pass": true
+    },
+    {
+      "name": "accepted_3",
+      "pass": true
+    },
+    {
+      "name": "completed_3",
+      "pass": true
+    },
+    {
+      "name": "real_source_ids_4",
+      "pass": true
+    },
+    {
+      "name": "model_quote_grounded_4",
+      "pass": true
+    },
+    {
+      "name": "idempotent_4",
+      "pass": true
+    },
+    {
+      "name": "marx_midterm_no_ai_rules",
+      "pass": true
+    },
+    {
+      "name": "unknown_award_never_defaults_to_doctoral_scheme",
+      "pass": true
+    },
+    {
+      "name": "versioned_policy_accessible",
+      "pass": true
+    },
+    {
+      "name": "original_attachment_accessible",
+      "pass": true
+    },
+    {
+      "name": "handoff_draft_not_sent",
+      "pass": true
+    },
+    {
+      "name": "unconfigured_submission_explicit",
+      "pass": true
+    },
+    {
+      "name": "clear_own_history",
+      "pass": true
+    },
+    {
+      "name": "cleared_session_unavailable",
+      "pass": true
+    },
+    {
+      "name": "policy_survives_history_clear",
+      "pass": true
+    },
+    {
+      "name": "logout_revokes_guest",
+      "pass": true
+    },
+    {
+      "name": "other_guest_unaffected",
+      "pass": true
+    }
+  ],
+  "turns": [
+    {
+      "decision": "not_met",
+      "topic": "lei_undergrad",
+      "window": {
+        "state": "closed",
+        "raw": "2026年10月26日17:00前",
+        "stage": "个人申报",
+        "note": "当前仅有原通知，未取得延期或补报依据。"
+      },
+      "generation_mode": "local_llm_evidence_and_rules",
+      "latency_ms": 13545,
+      "source_keys": [
+        "p012"
+      ]
+    },
+    {
+      "decision": "preliminary_match",
+      "topic": "lei_undergrad",
+      "window": {
+        "state": "closed",
+        "raw": "2026年10月26日17:00前",
+        "stage": "个人申报",
+        "note": "当前仅有原通知，未取得延期或补报依据。"
+      },
+      "generation_mode": "local_llm_evidence_and_rules",
+      "latency_ms": 3626,
+      "source_keys": [
+        "p012"
+      ]
+    },
+    {
+      "decision": "needs_information",
+      "topic": "lei_undergrad",
+      "window": {},
+      "generation_mode": "local_llm_evidence_and_rules",
+      "latency_ms": 3178,
+      "source_keys": [
+        "p012"
+      ]
+    },
+    {
+      "decision": "needs_human",
+      "topic": "midterm_marx",
+      "window": {
+        "state": "unknown",
+        "raw": null
+      },
+      "generation_mode": "local_llm_evidence_and_rules",
+      "latency_ms": 2603,
+      "source_keys": [
+        "p026"
+      ]
+    }
+  ],
+  "passed": 41,
+  "total": 41,
+  "status": "pass"
+}

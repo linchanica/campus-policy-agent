@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "transport": "stdio",
+  "tools": [
+    "search_policy",
+    "get_policy_evidence",
+    "check_eligibility",
+    "get_materials_and_steps",
+    "prepare_handoff"
+  ],
+  "all_five_tools_called": true,
+  "invalid_profile_rejected": true,
+  "unknown_source_explicit": true,
+  "search_returns_source_ids": true,
+  "workbuddy_client_connected": false
+}

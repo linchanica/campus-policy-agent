@@ -1,0 +1,28 @@
+{
+  "name": "campus-policy-student",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev:h5": "uni --host 127.0.0.1",
+    "dev:mp-weixin": "uni -p mp-weixin",
+    "build:h5": "uni build",
+    "build:mp-weixin": "uni build -p mp-weixin",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@dcloudio/uni-app": "3.0.0-5030420261029001",
+    "@dcloudio/uni-components": "3.0.0-5030420261029001",
+    "@dcloudio/uni-h5": "3.0.0-5030420261029001",
+    "@dcloudio/uni-mp-weixin": "3.0.0-5030420261029001",
+    "vue": "3.4.21"
+  },
+  "devDependencies": {
+    "@dcloudio/types": "3.4.32",
+    "@dcloudio/vite-plugin-uni": "3.0.0-5030420261029001",
+    "@vue/tsconfig": "0.5.1",
+    "typescript": "5.4.5",
+    "vite": "5.2.8",
+    "vue-tsc": "2.0.29"
+  }
+}
+

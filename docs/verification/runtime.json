@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-10-31T03:18:51.832298+08:00",
+  "python": "3.13.4",
+  "node": "24.22.1",
+  "pnpm": "11.25.0",
+  "os": "Windows",
+  "model_external_api_configured": false,
+  "embedding": {
+    "engine": "semantic_bge",
+    "model": "BAAI/bge-small-zh-v1.5",
+    "dimension": 512,
+    "release_id": "provided-copies-20261030-v1",
+    "chunks": 93,
+    "model_revision": "46fbe35fd4374a00fee7de77dfddaeb6dd6a2c59"
+  },
+  "local_llm": {
+    "provider": "transformers_cpu",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "status": "loaded_and_validated"
+  },
+  "documents": 45,
+  "unique_originals": 44,
+  "in_scope_documents": 31,
+  "reviewed_documents": 0,
+  "frontend_checks_passed": true,
+  "pytest_passed": 35,
+  "fixed_evaluation_passed": 80,
+  "live_http_checks_passed": 41
+}

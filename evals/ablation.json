@@ -1,0 +1,488 @@
+{
+  "created_at": "2026-10-31T03:13:59.568599+08:00",
+  "corpus_chunks": 93,
+  "queries": 30,
+  "scope": "同一小语料与固定查询集上的政策级 hit@5；共享前置关键词范围门槛，非独立测试集，无人工条款相关性标注；延迟仅为当前机器顺序检索，不含LLM。",
+  "modes": {
+    "keyword": {
+      "hit_at_5": 1.0,
+      "hit_count": 30,
+      "denominator": 30,
+      "initial_query_ms": 10.8,
+      "p50_ms": 8.85,
+      "p95_ms": 13.01,
+      "results": [
+        {
+          "case_id": "RET-01",
+          "hit": true,
+          "latency_ms": 8.69
+        },
+        {
+          "case_id": "RET-02",
+          "hit": true,
+          "latency_ms": 11.02
+        },
+        {
+          "case_id": "RET-03",
+          "hit": true,
+          "latency_ms": 8.98
+        },
+        {
+          "case_id": "RET-04",
+          "hit": true,
+          "latency_ms": 8.03
+        },
+        {
+          "case_id": "RET-05",
+          "hit": true,
+          "latency_ms": 10.59
+        },
+        {
+          "case_id": "RET-06",
+          "hit": true,
+          "latency_ms": 8.01
+        },
+        {
+          "case_id": "RET-07",
+          "hit": true,
+          "latency_ms": 13.01
+        },
+        {
+          "case_id": "RET-08",
+          "hit": true,
+          "latency_ms": 11.15
+        },
+        {
+          "case_id": "RET-09",
+          "hit": true,
+          "latency_ms": 10.53
+        },
+        {
+          "case_id": "RET-10",
+          "hit": true,
+          "latency_ms": 7.87
+        },
+        {
+          "case_id": "RET-11",
+          "hit": true,
+          "latency_ms": 8.72
+        },
+        {
+          "case_id": "RET-12",
+          "hit": true,
+          "latency_ms": 7.94
+        },
+        {
+          "case_id": "RET-13",
+          "hit": true,
+          "latency_ms": 9.33
+        },
+        {
+          "case_id": "RET-14",
+          "hit": true,
+          "latency_ms": 10.6
+        },
+        {
+          "case_id": "RET-15",
+          "hit": true,
+          "latency_ms": 20.1
+        },
+        {
+          "case_id": "RET-16",
+          "hit": true,
+          "latency_ms": 8.23
+        },
+        {
+          "case_id": "RET-17",
+          "hit": true,
+          "latency_ms": 10.07
+        },
+        {
+          "case_id": "RET-18",
+          "hit": true,
+          "latency_ms": 7.72
+        },
+        {
+          "case_id": "RET-19",
+          "hit": true,
+          "latency_ms": 11.18
+        },
+        {
+          "case_id": "RET-20",
+          "hit": true,
+          "latency_ms": 8.42
+        },
+        {
+          "case_id": "RET-21",
+          "hit": true,
+          "latency_ms": 7.86
+        },
+        {
+          "case_id": "RET-22",
+          "hit": true,
+          "latency_ms": 12.71
+        },
+        {
+          "case_id": "RET-23",
+          "hit": true,
+          "latency_ms": 15.35
+        },
+        {
+          "case_id": "RET-24",
+          "hit": true,
+          "latency_ms": 8.27
+        },
+        {
+          "case_id": "RET-25",
+          "hit": true,
+          "latency_ms": 8.63
+        },
+        {
+          "case_id": "RET-26",
+          "hit": true,
+          "latency_ms": 8.54
+        },
+        {
+          "case_id": "RET-27",
+          "hit": true,
+          "latency_ms": 9.03
+        },
+        {
+          "case_id": "RET-28",
+          "hit": true,
+          "latency_ms": 9.05
+        },
+        {
+          "case_id": "RET-29",
+          "hit": true,
+          "latency_ms": 7.77
+        },
+        {
+          "case_id": "RET-30",
+          "hit": true,
+          "latency_ms": 8.07
+        }
+      ]
+    },
+    "semantic": {
+      "hit_at_5": 1.0,
+      "hit_count": 30,
+      "denominator": 30,
+      "initial_query_ms": 600.5,
+      "p50_ms": 17.86,
+      "p95_ms": 23.28,
+      "results": [
+        {
+          "case_id": "RET-01",
+          "hit": true,
+          "latency_ms": 22.62
+        },
+        {
+          "case_id": "RET-02",
+          "hit": true,
+          "latency_ms": 21.74
+        },
+        {
+          "case_id": "RET-03",
+          "hit": true,
+          "latency_ms": 18.0
+        },
+        {
+          "case_id": "RET-04",
+          "hit": true,
+          "latency_ms": 17.61
+        },
+        {
+          "case_id": "RET-05",
+          "hit": true,
+          "latency_ms": 19.02
+        },
+        {
+          "case_id": "RET-06",
+          "hit": true,
+          "latency_ms": 20.59
+        },
+        {
+          "case_id": "RET-07",
+          "hit": true,
+          "latency_ms": 22.79
+        },
+        {
+          "case_id": "RET-08",
+          "hit": true,
+          "latency_ms": 20.94
+        },
+        {
+          "case_id": "RET-09",
+          "hit": true,
+          "latency_ms": 19.46
+        },
+        {
+          "case_id": "RET-10",
+          "hit": true,
+          "latency_ms": 15.82
+        },
+        {
+          "case_id": "RET-11",
+          "hit": true,
+          "latency_ms": 19.08
+        },
+        {
+          "case_id": "RET-12",
+          "hit": true,
+          "latency_ms": 16.73
+        },
+        {
+          "case_id": "RET-13",
+          "hit": true,
+          "latency_ms": 14.87
+        },
+        {
+          "case_id": "RET-14",
+          "hit": true,
+          "latency_ms": 14.53
+        },
+        {
+          "case_id": "RET-15",
+          "hit": true,
+          "latency_ms": 14.93
+        },
+        {
+          "case_id": "RET-16",
+          "hit": true,
+          "latency_ms": 16.38
+        },
+        {
+          "case_id": "RET-17",
+          "hit": true,
+          "latency_ms": 15.01
+        },
+        {
+          "case_id": "RET-18",
+          "hit": true,
+          "latency_ms": 14.4
+        },
+        {
+          "case_id": "RET-19",
+          "hit": true,
+          "latency_ms": 15.23
+        },
+        {
+          "case_id": "RET-20",
+          "hit": true,
+          "latency_ms": 23.28
+        },
+        {
+          "case_id": "RET-21",
+          "hit": true,
+          "latency_ms": 18.84
+        },
+        {
+          "case_id": "RET-22",
+          "hit": true,
+          "latency_ms": 16.91
+        },
+        {
+          "case_id": "RET-23",
+          "hit": true,
+          "latency_ms": 18.04
+        },
+        {
+          "case_id": "RET-24",
+          "hit": true,
+          "latency_ms": 23.36
+        },
+        {
+          "case_id": "RET-25",
+          "hit": true,
+          "latency_ms": 17.1
+        },
+        {
+          "case_id": "RET-26",
+          "hit": true,
+          "latency_ms": 17.72
+        },
+        {
+          "case_id": "RET-27",
+          "hit": true,
+          "latency_ms": 25.56
+        },
+        {
+          "case_id": "RET-28",
+          "hit": true,
+          "latency_ms": 15.25
+        },
+        {
+          "case_id": "RET-29",
+          "hit": true,
+          "latency_ms": 17.29
+        },
+        {
+          "case_id": "RET-30",
+          "hit": true,
+          "latency_ms": 22.27
+        }
+      ]
+    },
+    "hybrid": {
+      "hit_at_5": 1.0,
+      "hit_count": 30,
+      "denominator": 30,
+      "initial_query_ms": 22.0,
+      "p50_ms": 23.8,
+      "p95_ms": 26.88,
+      "results": [
+        {
+          "case_id": "RET-01",
+          "hit": true,
+          "latency_ms": 21.05
+        },
+        {
+          "case_id": "RET-02",
+          "hit": true,
+          "latency_ms": 26.04
+        },
+        {
+          "case_id": "RET-03",
+          "hit": true,
+          "latency_ms": 17.27
+        },
+        {
+          "case_id": "RET-04",
+          "hit": true,
+          "latency_ms": 24.24
+        },
+        {
+          "case_id": "RET-05",
+          "hit": true,
+          "latency_ms": 19.93
+        },
+        {
+          "case_id": "RET-06",
+          "hit": true,
+          "latency_ms": 20.71
+        },
+        {
+          "case_id": "RET-07",
+          "hit": true,
+          "latency_ms": 20.22
+        },
+        {
+          "case_id": "RET-08",
+          "hit": true,
+          "latency_ms": 23.7
+        },
+        {
+          "case_id": "RET-09",
+          "hit": true,
+          "latency_ms": 23.38
+        },
+        {
+          "case_id": "RET-10",
+          "hit": true,
+          "latency_ms": 24.12
+        },
+        {
+          "case_id": "RET-11",
+          "hit": true,
+          "latency_ms": 24.27
+        },
+        {
+          "case_id": "RET-12",
+          "hit": true,
+          "latency_ms": 27.81
+        },
+        {
+          "case_id": "RET-13",
+          "hit": true,
+          "latency_ms": 23.62
+        },
+        {
+          "case_id": "RET-14",
+          "hit": true,
+          "latency_ms": 26.88
+        },
+        {
+          "case_id": "RET-15",
+          "hit": true,
+          "latency_ms": 24.93
+        },
+        {
+          "case_id": "RET-16",
+          "hit": true,
+          "latency_ms": 21.9
+        },
+        {
+          "case_id": "RET-17",
+          "hit": true,
+          "latency_ms": 22.96
+        },
+        {
+          "case_id": "RET-18",
+          "hit": true,
+          "latency_ms": 22.56
+        },
+        {
+          "case_id": "RET-19",
+          "hit": true,
+          "latency_ms": 26.82
+        },
+        {
+          "case_id": "RET-20",
+          "hit": true,
+          "latency_ms": 22.23
+        },
+        {
+          "case_id": "RET-21",
+          "hit": true,
+          "latency_ms": 22.94
+        },
+        {
+          "case_id": "RET-22",
+          "hit": true,
+          "latency_ms": 24.59
+        },
+        {
+          "case_id": "RET-23",
+          "hit": true,
+          "latency_ms": 25.43
+        },
+        {
+          "case_id": "RET-24",
+          "hit": true,
+          "latency_ms": 24.85
+        },
+        {
+          "case_id": "RET-25",
+          "hit": true,
+          "latency_ms": 24.29
+        },
+        {
+          "case_id": "RET-26",
+          "hit": true,
+          "latency_ms": 27.34
+        },
+        {
+          "case_id": "RET-27",
+          "hit": true,
+          "latency_ms": 25.92
+        },
+        {
+          "case_id": "RET-28",
+          "hit": true,
+          "latency_ms": 23.77
+        },
+        {
+          "case_id": "RET-29",
+          "hit": true,
+          "latency_ms": 23.82
+        },
+        {
+          "case_id": "RET-30",
+          "hit": true,
+          "latency_ms": 23.64
+        }
+      ]
+    }
+  }
+}
