@@ -1,5 +1,5 @@
 {
-  "status": "build_and_native_compile_passed_simulator_unverified",
+  "status": "build_native_compile_and_user_manual_sample_passed",
   "setting": "requiredComponents",
   "cold_start_benchmarked": false,
   "phone_tested": false,
@@ -23,6 +23,15 @@
     "wxss"
   ],
   "prior_model_deployment_zip_updated": false,
-  "source_package_will_be_updated": true,
-  "notes": "Current project and source package only; native simulator SDK timed out, manual interaction verification pending. No startup timing or memory reduction claimed."
+  "source_package_will_be_updated": false,
+  "notes": "Current project and source package only. Native simulator SDK timed out; user subsequently confirmed the compiled home page and sample consultation manually. No cold-start timing or memory reduction claimed.",
+  "manual_user_report": {
+    "recorded_at": "2026-10-31T14:52:41.346951+08:00",
+    "source": "user_message",
+    "home_display_normal": true,
+    "sample_consultation_received_answer": true,
+    "user_statement": "首页正常，示例能收到回答",
+    "scope": "用户在开发工具编译后手动确认首页和中期考核示例；不代表完整交互矩阵、真机或启动性能测量。"
+  },
+  "source_package_updated": true
 }
