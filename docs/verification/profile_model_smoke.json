@@ -1,0 +1,68 @@
+{
+  "status": "pass",
+  "created_at": "2026-10-31T09:31:37.612775+08:00",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "fictional_inputs_only": true,
+  "cases": [
+    {
+      "fictional_input": "我今年读本科二年级，想申请雷军计算机本科生奖学金。",
+      "requested_fields": [
+        "year_of_study",
+        "program_level"
+      ],
+      "result": {
+        "status": "proposed",
+        "engine": "local_llm_constrained_selection",
+        "candidates": [
+          {
+            "field": "program_level",
+            "label": "学历层次",
+            "value": "undergraduate",
+            "quote": "我今年读本科二年级，想申请雷军计算机本科生奖学金",
+            "confirmation_required": true,
+            "status": "proposed"
+          }
+        ],
+        "duration_ms": 17297
+      }
+    },
+    {
+      "fictional_input": "我是AI学院的本科生，目前读大二。",
+      "requested_fields": [
+        "college",
+        "year_of_study"
+      ],
+      "result": {
+        "status": "proposed",
+        "engine": "local_llm_constrained_selection",
+        "candidates": [
+          {
+            "field": "college",
+            "label": "学院",
+            "value": "SAI",
+            "quote": "我是AI学院的本科生，目前读大二",
+            "confirmation_required": true,
+            "status": "proposed"
+          }
+        ],
+        "duration_ms": 1269
+      }
+    },
+    {
+      "fictional_input": "假设我是人工智能学院大二学生。",
+      "requested_fields": [
+        "college",
+        "year_of_study"
+      ],
+      "result": {
+        "status": "not_needed",
+        "candidates": []
+      }
+    }
+  ],
+  "supported_candidates": 2,
+  "auto_confirmed": false,
+  "cloud_called": false,
+  "duration_seconds": 18.57,
+  "scope": "仅验证真实本地推理、逐字证据过滤、条件语句拒绝和无结构时表单兜底；不代表画像提取准确率验收。"
+}

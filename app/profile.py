@@ -24,16 +24,14 @@ class ProfilePatch(BaseModel):
 
 def extract(text):
     p={}
+    if re.search(r'假设|假如|如果我|比如我是|例如我是',text):return p
     # Identity facts must be a student statement, rather than a policy title in a question.
     clauses=re.split(r'[，,。；;！？?\n]',text)
-    identity=' '.join(c for c in clauses if re.search(r'(?:我是|本人是|我就读|我在|我读|我为|我目前|我现在|我的学院)',c))
-    if re.search(r'马克思主义学院|马院',identity):p['college']='MARX'
-    elif '人工智能学院' in identity:p['college']='SAI'
-    elif '计算机学院' in identity:p['college']='CSE'
-    elif '网络安全学院' in identity:p['college']='CYBER'
-    if re.search(r'本科|大[一二三四]',identity):p['program_level']='undergraduate'
-    elif re.search(r'博士|博[一二三四]',identity):p['program_level']='doctor'
-    elif re.search(r'硕士|研[一二三]',identity):p['program_level']='master'
+    identity=' '.join(c for c in clauses if re.search(r'(?:我是|本人是|我就读|我在|我读|我为|我目前|我现在|我的学院)',c) and not re.search(r'不是|并非|不属于|同学|室友|规定|要求|是否|吗',c))
+    colleges=[value for pattern,value in [(r'马克思主义学院|马院','MARX'),(r'人工智能学院','SAI'),(r'计算机学院','CSE'),(r'网络安全学院','CYBER')] if re.search(pattern,identity)]
+    if len(colleges)==1:p['college']=colleges[0]
+    levels=[value for pattern,value in [(r'本科|大[一二三四]','undergraduate'),(r'博士|博[一二三四]','doctor'),(r'硕士|研[一二三]','master')] if re.search(pattern,identity)]
+    if len(levels)==1:p['program_level']=levels[0]
     cn={'一':1,'二':2,'三':3,'四':4}
     m=re.search(r'[大研博]([一二三四])',identity)
     if m:p['year_of_study']=cn[m[1]]
@@ -49,12 +47,13 @@ def extract(text):
     if m:p['major']=m[1].strip()
     achievements=[c.strip() for c in clauses if re.search(r'我(?:已|曾)?(?:发表|获得|获过|完成|有一|有两|有三)',c)]
     if achievements:p['achievements']='；'.join(achievements)[:600]
-    for field,pattern in [('academic_rank_pct',r'(?:学习成绩|学习排名|成绩排名)[^\d%]{0,8}(\d+(?:\.\d+)?)\s*%'),('comprehensive_rank_pct',r'(?:综合测评|综测)[^\d%]{0,8}(\d+(?:\.\d+)?)\s*%')]:
-        m=re.search(pattern,text)
-        if m and 0<=float(m[1])<=100:p[field]=float(m[1])
+    statements='；'.join(c for c in clauses if not re.search(r'要求|规定|需要|必须|要达到|至少|是否|吗|同学|室友|不是|并非',c))
+    for field,pattern in [('academic_rank_pct',r'(?:学习成绩|学习排名|成绩排名)[^\d%]{0,8}(\d+(?:\.\d+)?)\s*[%％]'),('comprehensive_rank_pct',r'(?:综合测评|综测)[^\d%]{0,8}(\d+(?:\.\d+)?)\s*[%％]')]:
+        m=re.search(pattern,statements)
+        if m and (identity or re.search(r'我|本人',m.string)) and 0<=float(m[1])<=100:p[field]=float(m[1])
     if re.search(r'没有挂科|无不及格',text):p['_no_failed_courses']=True
-    if re.search(r'中期考核.{0,3}(优秀|良好|合格|不合格)',text):
-        value=re.search(r'中期考核.{0,3}(优秀|良好|不合格|合格)',text)[1]
+    if re.search(r'中期考核.{0,3}(优秀|良好|合格|不合格)',statements) and (identity or re.search(r'我|本人',statements)):
+        value=re.search(r'中期考核.{0,3}(优秀|良好|不合格|合格)',statements)[1]
         p['midterm_result']={'优秀':'excellent','良好':'good','合格':'pass','不合格':'fail'}[value]
     return p
 

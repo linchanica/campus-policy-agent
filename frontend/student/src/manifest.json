@@ -1,2 +1,19 @@
-{"name":"珞策学生政策助手","appid":"","description":"校院政策咨询本地试用","versionName":"0.1.0","versionCode":"10","vueVersion":"3","h5":{"title":"珞策 · 学生政策助手"},"mp-weixin":{"appid":"","setting":{"es6":true,"minified":true},"usingComponents":true}}
-
+{
+  "name": "珞策学生政策助手",
+  "appid": "",
+  "description": "校院政策咨询本地试用",
+  "versionName": "0.1.0",
+  "versionCode": "10",
+  "vueVersion": "3",
+  "h5": {
+    "title": "珞策 · 学生政策助手"
+  },
+  "mp-weixin": {
+    "appid": "wx819a8152776e26fa",
+    "setting": {
+      "es6": true,
+      "minified": true
+    },
+    "usingComponents": true
+  }
+}

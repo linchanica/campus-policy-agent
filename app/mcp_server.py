@@ -2,6 +2,7 @@
 import json,os
 from pydantic import ValidationError
 os.environ.setdefault('DISABLE_LOCAL_LLM','1')
+os.environ.setdefault('DISABLE_PROFILE_LLM','1')
 from mcp.server.mcpserver import MCPServer
 from .knowledge import get_knowledge
 from .rules import checks,window
@@ -16,12 +17,14 @@ mcp=MCPServer('campus-policy')
 def search_policy(query:str,topic:str|None=None)->dict:
     """Search the provided policy copies. Results require business review."""
     keys=[TOPICS[topic]['key']] if topic in TOPICS else None
-    return {'sources':get_knowledge().search(query,keys),'review_status':'provided_copy_unreviewed'}
+    kb=get_knowledge()
+    return {'sources':kb.search(query,keys),'release_id':kb.release_id,'review_status':'business_reviewed' if kb.manifest.get('business_review_complete') else 'provided_copy_unreviewed'}
 
 @mcp.tool()
 def get_policy_evidence(source_id:str)->dict:
     """Fetch a source ID returned by search_policy."""
-    return get_knowledge().by_id.get(source_id,{'error':'SOURCE_NOT_FOUND'})
+    from .releases import find_source
+    return find_source(source_id)
 
 @mcp.tool()
 def check_eligibility(topic:str,profile:dict)->dict:
@@ -46,5 +49,7 @@ def prepare_handoff(question:str,unresolved_items:list[str])->dict:
     """Prepare a draft only. Does not send to a person or business system."""
     return {'state':'draft','submitted':False,'text':'咨询事项：'+question+'\n待核实：'+'；'.join(unresolved_items)+'\n请交由对应学院经办部门核实。'}
 
-if __name__=='__main__':mcp.run(transport='stdio')
+if __name__=='__main__':
+    from .db import initialize
+    initialize();mcp.run(transport='stdio')
 

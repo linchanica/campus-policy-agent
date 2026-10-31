@@ -34,8 +34,11 @@ def choose_topic(text,profile,current=None):
         return ('midterm_marx' if profile.get('college')=='MARX' else 'midterm') if profile.get('college') else current
     return current if current in TOPICS else None
 
-def run(text,old_profile,patch,current_topic=None,at=None,message_id=None,simulation=False):
-    started=time.monotonic();kb=get_knowledge()
+def run(text,old_profile,patch,current_topic=None,at=None,message_id=None,simulation=False,release_id=None):
+    started=time.monotonic();kb=get_knowledge(release_id)
+    if kb.release_id!=RELEASE:
+        from .releases import assert_runtime
+        assert_runtime(kb.manifest)
     profile=dict(old_profile);evidence=dict(profile.pop('_field_evidence',{}));conflicts={}
     found=extract(text)
     for key,value in found.items():
@@ -51,12 +54,24 @@ def run(text,old_profile,patch,current_topic=None,at=None,message_id=None,simula
     keys=[TOPICS[topic]['key']] if topic else None
     retrieved=kb.search(text,keys=keys,limit=8)
     sources={x['source_id']:x for x in retrieved}
-    result={'topic':topic,'summary':'','decision':'information','profile':profile,'condition_results':[],'questions':[],'missing_fields':[],'conflicts':conflicts,'steps':[],'materials':[],'materials_complete':True,'sources':[],'unresolved_items':['当前依据为用户提供的整理副本，尚待学校或学院业务人员复核。'],'query_time':at.isoformat(),'simulation':simulation,'release_id':RELEASE,'generation_mode':'evidence_and_rules','model_explanation':None,'handoff':{'state':'draft_available','submitted':False},'events':['识别事项与画像','混合检索','范围与时间检查']}
+    result={'topic':topic,'summary':'','decision':'information','profile':profile,'condition_results':[],'questions':[],'missing_fields':[],'conflicts':conflicts,'steps':[],'materials':[],'materials_complete':True,'sources':[],'unresolved_items':['当前依据为用户提供的整理副本，尚待学校或学院业务人员复核。'] if not kb.manifest.get('business_review_complete') else ['已取得审核发布快照，个体条件及实际证明材料仍须经办审核。'],'query_time':at.isoformat(),'simulation':simulation,'release_id':kb.release_id,'generation_mode':'evidence_and_rules','model_explanation':None,'handoff':{'state':'draft_available','submitted':False},'events':['识别事项与画像','混合检索','范围与时间检查']}
+    qualification=bool(re.search(r'能[否不]?申|可以申|能不能|符合|资格|能报|能参加|是否满足|想申请|要申请',text) or patch)
+    policy=kb.policy(TOPICS[topic]['key']) if topic else None
+    baseline=get_knowledge(RELEASE).policy(TOPICS[topic]['key']) if topic else None
+    stale_rules=bool(topic and (not policy or not policy['in_scope'] or policy.get('content_revision',policy['sha256'])!=baseline['sha256']))
     if conflicts:
         result['decision']='needs_information'
         for key,v in conflicts.items():result['questions'].append(f"你本轮提供的{LABELS.get(key,key)}与已确认信息不同，请在资料面板确认是否由“{VALUES.get(v['old'],v['old'])}”改为“{VALUES.get(v['new'],v['new'])}”。")
         result['summary']='发现身份或条件变化，确认后会重新匹配政策。'
         result['missing_fields']=list(conflicts)
+    elif topic in kb.cards:
+        from .cards import apply_card
+        result['sources']=list(sources.values());apply_card(result,kb,topic,profile,at,qualification)
+        sources={s['source_id']:s for s in result['sources']}
+    elif stale_rules:
+        result['decision']='needs_human';result['summary']='该事项的政策版本已更新，尚无与新版本绑定并复核的结构化规则卡。请查阅当前原文并由经办人员核实。'
+        result['window_status']={'state':'unknown','raw':None};result['materials_complete']=False
+        result['unresolved_items'].append('没有套用旧版本的条件、截止日期或材料清单。')
     elif topic=='midterm_marx':
         result['decision']='needs_human'
         result['summary']='你正在咨询马院中期考核，应核对马院通知。当前结构化流程仅覆盖人工智能学院中期考核，请查看马院检索原文并向对应学院确认。'
@@ -65,7 +80,6 @@ def run(text,old_profile,patch,current_topic=None,at=None,message_id=None,simula
         result['unresolved_items'].append('马院中期考核尚未完成结构化规则与流程复核，不套用其他学院的条件、时间或附件。')
     elif topic:
         key=TOPICS[topic]['key'];win=window(topic,at);result['window_status']=win
-        qualification=bool(re.search(r'能[否不]?申|可以申|能不能|符合|资格|能报|能参加|是否满足|想申请|要申请',text) or patch)
         if qualification:
             missing=[]
             for name,status,fields,detail,phrase in checks(topic,profile):
@@ -113,15 +127,26 @@ def run(text,old_profile,patch,current_topic=None,at=None,message_id=None,simula
             result['summary']='当前资料包含雷军计算机本科生奖学金和雷军计算机研究生奖学金，两者对象不同。其他同名雷军奖学金不能直接套用这些条件。'
             result['questions']=['请先确认你指的是雷军计算机奖学金，还是其他同名奖学金。若是前者，可选择本科生或研究生奖学金事项继续。']
             if '计算机' in text:result['questions']=['你咨询本科生奖学金，还是面向2026级特定博士新生的研究生奖学金？']
-    result['sources']=list(sources.values())[:16]
+    result['sources']=list(sources.values()) if topic in kb.cards else list(sources.values())[:16]
     allowed={s['source_id'] for s in result['sources']}
     for c in result['condition_results']:c['source_ids']=[x for x in c['source_ids'] if x in allowed]
-    result['validation']={'source_ids_valid':all(c['source_ids'] for c in result['condition_results']) if result['condition_results'] else True,'policy_review':'pending_business_review','reviewed_approval':False}
+    result['validation']={'source_ids_valid':all(c['source_ids'] for c in result['condition_results']) if result['condition_results'] else True,'policy_review':'business_reviewed' if kb.manifest.get('business_review_complete') else 'pending_business_review','reviewed_approval':False}
+    if not result['validation']['source_ids_valid']:
+        result['decision']='needs_human';result['summary']='关键条件缺少可核验出处，请由经办人员核实。'
+    for item in result['materials']:
+        if item.get('attachment_key'):
+            attached=kb.policy(item['attachment_key'])
+            if attached:item['attachment_version']=attached.get('version_id',attached['sha256'][:16])
+    result['profile_suggestions']={'status':'not_needed','candidates':[]}
+    if result['decision']=='needs_information' and not conflicts and result.get('window_status',{}).get('state')!='closed':
+        from .profile_llm import propose
+        result['profile_suggestions']=propose(text,[f for f in result['missing_fields'] if profile.get(f) is None])
+        if result['profile_suggestions']['candidates']:result['events'].append('本地模型提出画像候选，等待学生确认')
     from .local_model import available
-    if providers.configured() or available():
+    if available():
         try:
             result['model_explanation']=providers.grounded_summary(text,result['sources'])
-            result['generation_mode']='local_llm_evidence_and_rules' if not providers.configured() else 'configured_llm_with_rule_guard'
+            if result['model_explanation']:result['generation_mode']='local_llm_evidence_and_rules'
         except Exception:result['unresolved_items'].append('模型解释暂不可用，已保留政策原文和程序条件结果。')
     result['events']+=['逐项条件核对','来源标识核验','生成办理卡']
     result['duration_ms']=round((time.monotonic()-started)*1000)

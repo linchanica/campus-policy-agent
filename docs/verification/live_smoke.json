@@ -178,7 +178,7 @@
         "note": "当前仅有原通知，未取得延期或补报依据。"
       },
       "generation_mode": "local_llm_evidence_and_rules",
-      "latency_ms": 13545,
+      "latency_ms": 13809,
       "source_keys": [
         "p012"
       ]
@@ -193,7 +193,7 @@
         "note": "当前仅有原通知，未取得延期或补报依据。"
       },
       "generation_mode": "local_llm_evidence_and_rules",
-      "latency_ms": 3626,
+      "latency_ms": 2577,
       "source_keys": [
         "p012"
       ]
@@ -203,7 +203,7 @@
       "topic": "lei_undergrad",
       "window": {},
       "generation_mode": "local_llm_evidence_and_rules",
-      "latency_ms": 3178,
+      "latency_ms": 3094,
       "source_keys": [
         "p012"
       ]
@@ -216,7 +216,7 @@
         "raw": null
       },
       "generation_mode": "local_llm_evidence_and_rules",
-      "latency_ms": 2603,
+      "latency_ms": 3099,
       "source_keys": [
         "p026"
       ]

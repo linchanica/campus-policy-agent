@@ -1,0 +1,16 @@
+{
+  "status": "partial_pass_user_reported",
+  "updated_at": "2026-10-31T09:55:13.842443+08:00",
+  "user_reported_admin_login_and_secret_save": true,
+  "user_reported_student_checks": {
+    "source_detail": true,
+    "registration_form_download": true,
+    "profile_edit_and_recheck": true
+  },
+  "browser_ui_automated": false,
+  "native_control_blocked": true,
+  "reason": "原生电脑控制安全检查无法可靠确认当前浏览器URL，工具要求停止；已停止且未绕过。",
+  "student_ui_manual_feedback": "用户回复：原文、下载、资料修改均成功。仅记录这些已实际反馈的路径。",
+  "wechat_real_device_tested": false,
+  "workbuddy_real_client_tested": false
+}

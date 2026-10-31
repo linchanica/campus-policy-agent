@@ -1,0 +1,60 @@
+{
+  "status": "pass",
+  "fictional_students_only": true,
+  "release_id": "provided-copies-20261030-v1",
+  "wechat_server_configuration_present": true,
+  "cloud_model_enabled": false,
+  "local_profile_http_case": {
+    "duration_ms": 14336,
+    "decision": "needs_information",
+    "generation_mode": "local_llm_evidence_and_rules",
+    "profile_candidates": 0,
+    "proposal_engine": "local_llm_constrained_selection",
+    "source_ids_valid": true,
+    "simulation": true
+  },
+  "parallel_clients": 4,
+  "parallel_cases": [
+    {
+      "duration_ms": 4019,
+      "decision": "information",
+      "generation_mode": "local_llm_evidence_and_rules",
+      "profile_candidates": 0,
+      "proposal_engine": null,
+      "source_ids_valid": true,
+      "simulation": false
+    },
+    {
+      "duration_ms": 9433,
+      "decision": "information",
+      "generation_mode": "local_llm_evidence_and_rules",
+      "profile_candidates": 0,
+      "proposal_engine": null,
+      "source_ids_valid": true,
+      "simulation": false
+    },
+    {
+      "duration_ms": 6784,
+      "decision": "information",
+      "generation_mode": "local_llm_evidence_and_rules",
+      "profile_candidates": 0,
+      "proposal_engine": null,
+      "source_ids_valid": true,
+      "simulation": false
+    },
+    {
+      "duration_ms": 12029,
+      "decision": "information",
+      "generation_mode": "local_llm_evidence_and_rules",
+      "profile_candidates": 0,
+      "proposal_engine": null,
+      "source_ids_valid": true,
+      "simulation": false
+    }
+  ],
+  "sample_p50_ms": 6784,
+  "sample_p95_ms": 12029,
+  "browser_ui_tested": false,
+  "real_wechat_login_tested": false,
+  "scope": "四个虚构学生并行咨询及一轮本地画像候选链路；仅为本机小样本恢复与隔离检查，不代表生产容量或微信真机验收。"
+}

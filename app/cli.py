@@ -18,7 +18,7 @@ def main():
         subprocess.run(command,check=True);return
     if args.command=='index':print(json.dumps({k:v for k,v in get_knowledge().index(args.semantic).items() if k!='chunk_ids'},ensure_ascii=False,indent=2));return
     if args.command in {'doctor','validate-data'}:
-        kb=get_knowledge();r={'mode':'local_trial' if DEV else 'production_disabled','release_id':RELEASE,'documents':len(kb.documents),'parsed':sum(x['parse_status']=='parsed' for x in kb.documents),'unique_files':len({x['sha256'] for x in kb.documents}),'chunks':len(kb.chunks),'reviewed_policies':0,'business_review_required':True,'llm_configured':False,'index':{k:v for k,v in kb.index_info.items() if k!='chunk_ids'}}
+        kb=get_knowledge();r={'mode':'local_trial' if DEV else 'production_disabled','release_id':kb.release_id,'documents':len(kb.documents),'parsed':sum(x['parse_status']=='parsed' for x in kb.documents),'unique_files':len({x['sha256'] for x in kb.documents}),'chunks':len(kb.chunks),'reviewed_policies':sum(x['review_status']=='business_reviewed' for x in kb.documents),'business_review_required':not kb.manifest.get('business_review_complete',False),'llm_configured':False,'index':{k:v for k,v in kb.index_info.items() if k!='chunk_ids'}}
         from .providers import configured
         r['llm_configured']=configured();print(json.dumps(r,ensure_ascii=False,indent=2));return
     if args.command=='export-openapi':

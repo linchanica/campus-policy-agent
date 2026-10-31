@@ -1,8 +1,6 @@
 import os,tempfile,json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-os.environ['POLICY_WORK_DIR']=tempfile.mkdtemp(prefix='api-test-',dir=ROOT/'work')
-os.environ['DISABLE_LOCAL_LLM']='1'
 import pytest
 from fastapi.testclient import TestClient
 from app.api import app
@@ -141,7 +139,8 @@ def test_material_question_does_not_require_unrelated_eligibility_profile():
 def test_model_failure_keeps_verified_policy_and_rule_result(monkeypatch):
     from app import providers
     monkeypatch.setattr(providers,'configured',lambda:True)
-    def unavailable(*args):raise TimeoutError('fictional provider timeout')
+    monkeypatch.setattr('app.local_model.available',lambda:True)
+    def unavailable(*args,**kwargs):raise TimeoutError('fictional provider timeout')
     monkeypatch.setattr(providers,'grounded_summary',unavailable)
     r,_,_=run('我能申请雷军计算机本科生奖学金吗？',{}, {'college':'SAI'})
     assert r['sources'] and r['validation']['source_ids_valid']
@@ -178,7 +177,7 @@ def test_expired_guest_cannot_access_history(client):
     from app.db import connect
     headers=login(client)
     token=headers['Authorization'].removeprefix('Bearer ')
-    with connect() as d:d.execute('UPDATE users SET created_at=? WHERE token_hash=?',('2000-01-01T00:00:00+08:00',hashlib.sha256(token.encode()).hexdigest()))
+    with connect() as d:d.execute('UPDATE auth_tokens SET expires_at=? WHERE token_hash=?',('2000-01-01T00:00:00+08:00',hashlib.sha256(token.encode()).hexdigest()))
     assert client.get('/api/v1/sessions',headers=headers).status_code==401
 
 def test_expired_lease_recovers_once_even_with_two_workers():

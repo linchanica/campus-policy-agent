@@ -1,15 +1,15 @@
 {
-  "document_version": "implementation-20261031-local",
-  "updated_at": "2026-10-31T03:18:51.832298+08:00",
-  "overall_status": "local_prototype_available_full_plan_incomplete",
-  "note": "completed_local仅表示该任务的本地实现及自动验证，不表示业务审核、真实客户端/真机或生产验收。部分任务仍有技术工作未实现，不仅是缺账号。原始60项180个操作完整保留。",
+  "document_version": "implementation-20261031-management-release",
+  "updated_at": "2026-10-31T09:55:13.842443+08:00",
+  "overall_status": "local_trial_core_implemented_full_plan_acceptance_pending",
+  "note": "completed_local表示限定本地范围的实现及自动验证；不代表学校业务审核、真实微信/WorkBuddy客户端、人工界面或生产验收。完整方案仍有校方认证、生产配置与全面事实核验等技术和外部接入工作。保留原始60项180个操作。",
   "task_count": 60,
   "operation_count": 180,
   "counts": {
-    "partial": 42,
-    "external_dependency": 4,
-    "completed_local": 13,
-    "business_review_required": 1
+    "partial": 34,
+    "completed_local": 23,
+    "business_review_required": 1,
+    "external_dependency": 2
   },
   "status_definitions": {
     "completed_local": "本地实现与验证完成",
@@ -63,7 +63,7 @@
       "dependencies": [
         "T01"
       ],
-      "status": "partial",
+      "status": "completed_local",
       "operations": [
         "列出学生、数据维护、政策审核、管理员与经办角色",
         "为会话、原件、审核、发布及工单逐项分配权限",
@@ -72,26 +72,44 @@
       "deliverable": "权限矩阵和授权规则",
       "acceptance": "每个接口都有访问规则，无依靠前端隐藏按钮的权限控制",
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
-      "completed_at": null,
+      "completed_at": "2026-10-31T09:55:13.842443+08:00",
       "evidence": [
-        "app/api.py",
-        "tests/test_backend.py",
-        "docs/运维与发布操作.md"
+        "app/auth.py",
+        "app/admin_api.py",
+        "tests/test_admin.py"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "学生会话、任务与附件执行服务端归属校验；管理、审核、发布和经办角色仍为设计。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "学生、编辑、审核、发布管理员与经办角色已落实服务端权限；本地角色始终不具备已验证学校身份。",
       "operation_results": [
         {
           "operation": "列出学生、数据维护、政策审核、管理员与经办角色",
-          "status": "design_only"
+          "status": "completed_local",
+          "note": "学生、编辑、审核、发布管理员与经办角色已落实服务端权限；本地角色始终不具备已验证学校身份。",
+          "evidence": [
+            "app/auth.py",
+            "app/admin_api.py",
+            "tests/test_admin.py"
+          ]
         },
         {
           "operation": "为会话、原件、审核、发布及工单逐项分配权限",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "学生、编辑、审核、发布管理员与经办角色已落实服务端权限；本地角色始终不具备已验证学校身份。",
+          "evidence": [
+            "app/auth.py",
+            "app/admin_api.py",
+            "tests/test_admin.py"
+          ]
         },
         {
           "operation": "规定身份绑定与跨用户访问的服务端校验",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "学生、编辑、审核、发布管理员与经办角色已落实服务端权限；本地角色始终不具备已验证学校身份。",
+          "evidence": [
+            "app/auth.py",
+            "app/admin_api.py",
+            "tests/test_admin.py"
+          ]
         }
       ]
     },
@@ -102,7 +120,7 @@
       "dependencies": [
         "T01"
       ],
-      "status": "external_dependency",
+      "status": "partial",
       "operations": [
         "登记小程序主体、AppID、管理员和开发者权限",
         "确认服务器、域名、证书、模型接口与预算",
@@ -115,20 +133,32 @@
       "evidence": [
         "docs/资源台账.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "模型API及AppID用户确认暂缺；服务器、正式身份、工单等尚未落实。已登记替代方案与责任角色。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "已取得真实AppID并写入编译产物；用户在本机保存AppSecret。模型切换按用户要求暂缓；服务器、域名、学校身份协议与业务审核人员仍待落实。",
       "operation_results": [
         {
           "operation": "登记小程序主体、AppID、管理员和开发者权限",
-          "status": "external_dependency"
+          "status": "completed_local",
+          "note": "已取得真实AppID并写入编译产物；用户在本机保存AppSecret。模型切换按用户要求暂缓；服务器、域名、学校身份协议与业务审核人员仍待落实。",
+          "evidence": [
+            "docs/资源台账.json"
+          ]
         },
         {
           "operation": "确认服务器、域名、证书、模型接口与预算",
-          "status": "external_dependency"
+          "status": "partial",
+          "note": "已取得真实AppID并写入编译产物；用户在本机保存AppSecret。模型切换按用户要求暂缓；服务器、域名、学校身份协议与业务审核人员仍待落实。",
+          "evidence": [
+            "docs/资源台账.json"
+          ]
         },
         {
           "operation": "标记学校登录和人工工单是否具备接入条件",
-          "status": "external_dependency"
+          "status": "completed_local",
+          "note": "已取得真实AppID并写入编译产物；用户在本机保存AppSecret。模型切换按用户要求暂缓；服务器、域名、学校身份协议与业务审核人员仍待落实。",
+          "evidence": [
+            "docs/资源台账.json"
+          ]
         }
       ]
     },
@@ -229,24 +259,42 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "app/config.py",
-        "app/api.py",
+        "app/integrations.py",
+        "tests/test_identity.py",
         ".env.example"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "已实现.env、本地模型可用性检查与正式环境阻断；完整生产配置模型和所有配置误用校验尚未完成。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "本机接入管理页支持秘密不回显、原子保存、URL和换行校验，测试使用隔离假密钥；正式生产配置模型和身份策略仍须结合部署资源实施。",
       "operation_results": [
         {
           "operation": "定义环境变量模型及开发和正式配置",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "本机接入管理页支持秘密不回显、原子保存、URL和换行校验，测试使用隔离假密钥；正式生产配置模型和身份策略仍须结合部署资源实施。",
+          "evidence": [
+            "app/integrations.py",
+            "tests/test_identity.py",
+            ".env.example"
+          ]
         },
         {
           "operation": "对缺密钥、非法模型标识、路径越界和空发布快照启动报错",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "本机接入管理页支持秘密不回显、原子保存、URL和换行校验，测试使用隔离假密钥；正式生产配置模型和身份策略仍须结合部署资源实施。",
+          "evidence": [
+            "app/integrations.py",
+            "tests/test_identity.py",
+            ".env.example"
+          ]
         },
         {
           "operation": "提供不含真实密钥的配置样例",
-          "status": "completed_local"
+          "status": "partial",
+          "note": "本机接入管理页支持秘密不回显、原子保存、URL和换行校验，测试使用隔离假密钥；正式生产配置模型和身份策略仍须结合部署资源实施。",
+          "evidence": [
+            "app/integrations.py",
+            "tests/test_identity.py",
+            ".env.example"
+          ]
         }
       ]
     },
@@ -461,23 +509,42 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "app/rules.py",
-        "app/workflow.py"
+        "app/cards.py",
+        "frontend/admin/app.js",
+        "tests/test_admin.py"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "已编码首期对象、条件、窗口与材料，保留未知和缺件；尚无覆盖全部条款的完整政策卡管理模型。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "新增绑定精确政策版本的PolicyCard、受限三态DSL、材料和步骤原文、时限与规则卡编辑；原始事项仍保留已编码规则，全部条款尚待业务审核覆盖。",
       "operation_results": [
         {
           "operation": "提取对象、条件、例外、排除、材料与各阶段时间",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "新增绑定精确政策版本的PolicyCard、受限三态DSL、材料和步骤原文、时限与规则卡编辑；原始事项仍保留已编码规则，全部条款尚待业务审核覆盖。",
+          "evidence": [
+            "app/cards.py",
+            "frontend/admin/app.js",
+            "tests/test_admin.py"
+          ]
         },
         {
           "operation": "为每个关键字段绑定source_id与原文定位",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "新增绑定精确政策版本的PolicyCard、受限三态DSL、材料和步骤原文、时限与规则卡编辑；原始事项仍保留已编码规则，全部条款尚待业务审核覆盖。",
+          "evidence": [
+            "app/cards.py",
+            "frontend/admin/app.js",
+            "tests/test_admin.py"
+          ]
         },
         {
           "operation": "保存未知值和材料清单完整性",
-          "status": "completed_local"
+          "status": "partial",
+          "note": "新增绑定精确政策版本的PolicyCard、受限三态DSL、材料和步骤原文、时限与规则卡编辑；原始事项仍保留已编码规则，全部条款尚待业务审核覆盖。",
+          "evidence": [
+            "app/cards.py",
+            "frontend/admin/app.js",
+            "tests/test_admin.py"
+          ]
         }
       ]
     },
@@ -527,7 +594,7 @@
         "T05",
         "T06"
       ],
-      "status": "partial",
+      "status": "completed_local",
       "operations": [
         "按数据字典建表、外键、唯一约束和索引",
         "实现迁移版本、事务和JSON模型校验",
@@ -536,25 +603,44 @@
       "deliverable": "数据模型和迁移脚本",
       "acceptance": "表关系一致，消息幂等与任务答案唯一约束生效",
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
-      "completed_at": null,
+      "completed_at": "2026-10-31T09:55:13.842443+08:00",
       "evidence": [
         "app/db.py",
-        "tests/test_backend.py"
+        "tests/test_admin.py",
+        "docs/verification/release_recovery.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "SQLite外键、事务、唯一约束、索引与初始user_version已验证；多版本迁移回退尚未实现。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "数据库增加认证、角色、身份、邀请、草稿、审核、发布快照、接待事件等加法迁移；旧凭证迁移不复活撤销令牌。数据库与整批源码恢复已实际演练。",
       "operation_results": [
         {
           "operation": "按数据字典建表、外键、唯一约束和索引",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "数据库增加认证、角色、身份、邀请、草稿、审核、发布快照、接待事件等加法迁移；旧凭证迁移不复活撤销令牌。数据库与整批源码恢复已实际演练。",
+          "evidence": [
+            "app/db.py",
+            "tests/test_admin.py",
+            "docs/verification/release_recovery.json"
+          ]
         },
         {
           "operation": "实现迁移版本、事务和JSON模型校验",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "数据库增加认证、角色、身份、邀请、草稿、审核、发布快照、接待事件等加法迁移；旧凭证迁移不复活撤销令牌。数据库与整批源码恢复已实际演练。",
+          "evidence": [
+            "app/db.py",
+            "tests/test_admin.py",
+            "docs/verification/release_recovery.json"
+          ]
         },
         {
           "operation": "在空库及旧库副本验证迁移与回退策略",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "数据库增加认证、角色、身份、邀请、草稿、审核、发布快照、接待事件等加法迁移；旧凭证迁移不复活撤销令牌。数据库与整批源码恢复已实际演练。",
+          "evidence": [
+            "app/db.py",
+            "tests/test_admin.py",
+            "docs/verification/release_recovery.json"
+          ]
         }
       ]
     },
@@ -566,7 +652,7 @@
         "T14",
         "T09"
       ],
-      "status": "partial",
+      "status": "completed_local",
       "operations": [
         "为原件和附件生成受控storage_key",
         "实现校验哈希、上传限制和授权下载",
@@ -575,25 +661,44 @@
       "deliverable": "存储服务和附件接口底层",
       "acceptance": "已授权可读，越界或跨权限请求失败，原件哈希可核对",
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
-      "completed_at": null,
+      "completed_at": "2026-10-31T09:55:13.842443+08:00",
       "evidence": [
+        "app/releases.py",
         "app/api.py",
-        "scripts/prepare_data.py"
+        "tests/test_admin.py"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "原件使用受控标识和授权下载，导入校验大小与哈希；没有学生上传入口和完整历史版本管理。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "授权原件下载、DOCX/PDF管理上传、原始副本保留、校正说明、内容版本和历史原件哈希可核验；损坏或超限上传保持草稿不变。",
       "operation_results": [
         {
           "operation": "为原件和附件生成受控storage_key",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "授权原件下载、DOCX/PDF管理上传、原始副本保留、校正说明、内容版本和历史原件哈希可核验；损坏或超限上传保持草稿不变。",
+          "evidence": [
+            "app/releases.py",
+            "app/api.py",
+            "tests/test_admin.py"
+          ]
         },
         {
           "operation": "实现校验哈希、上传限制和授权下载",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "授权原件下载、DOCX/PDF管理上传、原始副本保留、校正说明、内容版本和历史原件哈希可核验；损坏或超限上传保持草稿不变。",
+          "evidence": [
+            "app/releases.py",
+            "app/api.py",
+            "tests/test_admin.py"
+          ]
         },
         {
           "operation": "阻止任意路径读取并保存历史版本",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "授权原件下载、DOCX/PDF管理上传、原始副本保留、校正说明、内容版本和历史原件哈希可核验；损坏或超限上传保持草稿不变。",
+          "evidence": [
+            "app/releases.py",
+            "app/api.py",
+            "tests/test_admin.py"
+          ]
         }
       ]
     },
@@ -763,7 +868,7 @@
         "T15",
         "T19"
       ],
-      "status": "partial",
+      "status": "completed_local",
       "operations": [
         "生成代码、规则、政策、模型与索引版本清单",
         "检查引用关系、材料状态和快照完整性",
@@ -772,25 +877,44 @@
       "deliverable": "release清单和发布服务",
       "acceptance": "同一轮次使用完整一致版本，可回到上一快照",
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
-      "completed_at": null,
+      "completed_at": "2026-10-31T09:55:13.842443+08:00",
       "evidence": [
-        "app/maintenance.py",
-        "docs/verification/restore_check.json"
+        "app/releases.py",
+        "docs/verification/release_recovery.json",
+        "tests/test_admin.py"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "备份包含代码、规则、政策与向量，并核验完整性；尚未实现审核管理界面与在线原子切换发布。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "草稿隔离、独立构建、审核门禁、完整索引快照、CAS原子切换、旧版出处和回滚均已验证；正式候选不能由未验证本地身份签署。",
       "operation_results": [
         {
           "operation": "生成代码、规则、政策、模型与索引版本清单",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "草稿隔离、独立构建、审核门禁、完整索引快照、CAS原子切换、旧版出处和回滚均已验证；正式候选不能由未验证本地身份签署。",
+          "evidence": [
+            "app/releases.py",
+            "docs/verification/release_recovery.json",
+            "tests/test_admin.py"
+          ]
         },
         {
           "operation": "检查引用关系、材料状态和快照完整性",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "草稿隔离、独立构建、审核门禁、完整索引快照、CAS原子切换、旧版出处和回滚均已验证；正式候选不能由未验证本地身份签署。",
+          "evidence": [
+            "app/releases.py",
+            "docs/verification/release_recovery.json",
+            "tests/test_admin.py"
+          ]
         },
         {
           "operation": "通过后原子切换并保留前一版本",
-          "status": "not_implemented"
+          "status": "completed_local",
+          "note": "草稿隔离、独立构建、审核门禁、完整索引快照、CAS原子切换、旧版出处和回滚均已验证；正式候选不能由未验证本地身份签署。",
+          "evidence": [
+            "app/releases.py",
+            "docs/verification/release_recovery.json",
+            "tests/test_admin.py"
+          ]
         }
       ]
     },
@@ -854,22 +978,45 @@
       "completed_at": null,
       "evidence": [
         "app/profile.py",
-        "app/local_model.py"
+        "app/profile_llm.py",
+        "docs/verification/profile_model_smoke.json",
+        "tests/test_profile_workflow.py"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "实际采用明确陈述的有限模式提取及表单确认；完整LLM结构化画像提取与失败重试尚未实现，轻量模型用于取证选择。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "明确本人陈述提取与模型候选链路已实现。0.5B自由JSON不稳定，当前本地模式仅从有逐字证据的类型化候选中选择，须学生确认。真实推理及兜底通过；广泛自然语言泛化评测仍待完成。",
       "operation_results": [
         {
           "operation": "编写仅提取明确事实的模型提示",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "明确本人陈述提取与模型候选链路已实现。0.5B自由JSON不稳定，当前本地模式仅从有逐字证据的类型化候选中选择，须学生确认。真实推理及兜底通过；广泛自然语言泛化评测仍待完成。",
+          "evidence": [
+            "app/profile.py",
+            "app/profile_llm.py",
+            "docs/verification/profile_model_smoke.json",
+            "tests/test_profile_workflow.py"
+          ]
         },
         {
           "operation": "验证模型JSON并校验数值枚举",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "明确本人陈述提取与模型候选链路已实现。0.5B自由JSON不稳定，当前本地模式仅从有逐字证据的类型化候选中选择，须学生确认。真实推理及兜底通过；广泛自然语言泛化评测仍待完成。",
+          "evidence": [
+            "app/profile.py",
+            "app/profile_llm.py",
+            "docs/verification/profile_model_smoke.json",
+            "tests/test_profile_workflow.py"
+          ]
         },
         {
           "operation": "实现有限重试与提取失败澄清",
-          "status": "partial"
+          "status": "partial",
+          "note": "明确本人陈述提取与模型候选链路已实现。0.5B自由JSON不稳定，当前本地模式仅从有逐字证据的类型化候选中选择，须学生确认。真实推理及兜底通过；广泛自然语言泛化评测仍待完成。",
+          "evidence": [
+            "app/profile.py",
+            "app/profile_llm.py",
+            "docs/verification/profile_model_smoke.json",
+            "tests/test_profile_workflow.py"
+          ]
         }
       ]
     },
@@ -1043,7 +1190,7 @@
         "T25",
         "T26"
       ],
-      "status": "partial",
+      "status": "completed_local",
       "operations": [
         "串联提取、检索、追问、比对和生成节点",
         "固定每轮快照并定义节点超时与有限重试",
@@ -1052,25 +1199,44 @@
       "deliverable": "可回放状态工作流",
       "acceptance": "正常和异常路径均可复现，无无限循环",
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
-      "completed_at": null,
+      "completed_at": "2026-10-31T09:55:13.842443+08:00",
       "evidence": [
+        "app/worker.py",
         "app/workflow.py",
-        "app/worker.py"
+        "tests/test_profile_workflow.py"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "已实现识别、检索、条件、材料、来源与人工分支及任务租约；完整节点级重试和动态发布快照仍需扩展。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "每轮固定release；任务租约续期、尝试所有权、画像修订检查、有限模型等待及检索/模型故障分支已实现，旧尝试不能覆盖新状态。",
       "operation_results": [
         {
           "operation": "串联提取、检索、追问、比对和生成节点",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "每轮固定release；任务租约续期、尝试所有权、画像修订检查、有限模型等待及检索/模型故障分支已实现，旧尝试不能覆盖新状态。",
+          "evidence": [
+            "app/worker.py",
+            "app/workflow.py",
+            "tests/test_profile_workflow.py"
+          ]
         },
         {
           "operation": "固定每轮快照并定义节点超时与有限重试",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "每轮固定release；任务租约续期、尝试所有权、画像修订检查、有限模型等待及检索/模型故障分支已实现，旧尝试不能覆盖新状态。",
+          "evidence": [
+            "app/worker.py",
+            "app/workflow.py",
+            "tests/test_profile_workflow.py"
+          ]
         },
         {
           "operation": "实现完成、澄清、人工和异常分支",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "每轮固定release；任务租约续期、尝试所有权、画像修订检查、有限模型等待及检索/模型故障分支已实现，旧尝试不能覆盖新状态。",
+          "evidence": [
+            "app/worker.py",
+            "app/workflow.py",
+            "tests/test_profile_workflow.py"
+          ]
         }
       ]
     },
@@ -1081,7 +1247,7 @@
       "dependencies": [
         "T27"
       ],
-      "status": "partial",
+      "status": "completed_local",
       "operations": [
         "定义summary、conditions、steps、materials与sources响应",
         "将审核规则和证据传给生成步骤",
@@ -1090,25 +1256,44 @@
       "deliverable": "回答模型和生成模板",
       "acceptance": "两端能按字段呈现，缺清单时不显示完整材料承诺",
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
-      "completed_at": null,
+      "completed_at": "2026-10-31T09:55:13.842443+08:00",
       "evidence": [
         "app/workflow.py",
-        "contracts/openapi.json"
+        "app/cards.py",
+        "frontend/student/src/pages/index/index.vue"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "两端共享结构化结果，材料缺件明确；尚无完整claim_id级事实管理，主指引由规则模板生成。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "办理结果分为结论、步骤、材料、时间、追问、未决与出处；新规则卡含claim_id及逐字证据，缺件明确，不承诺审批。",
       "operation_results": [
         {
           "operation": "定义summary、conditions、steps、materials与sources响应",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "办理结果分为结论、步骤、材料、时间、追问、未决与出处；新规则卡含claim_id及逐字证据，缺件明确，不承诺审批。",
+          "evidence": [
+            "app/workflow.py",
+            "app/cards.py",
+            "frontend/student/src/pages/index/index.vue"
+          ]
         },
         {
           "operation": "将审核规则和证据传给生成步骤",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "办理结果分为结论、步骤、材料、时间、追问、未决与出处；新规则卡含claim_id及逐字证据，缺件明确，不承诺审批。",
+          "evidence": [
+            "app/workflow.py",
+            "app/cards.py",
+            "frontend/student/src/pages/index/index.vue"
+          ]
         },
         {
           "operation": "区分政策必需材料与准备建议并保存claim_id",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "办理结果分为结论、步骤、材料、时间、追问、未决与出处；新规则卡含claim_id及逐字证据，缺件明确，不承诺审批。",
+          "evidence": [
+            "app/workflow.py",
+            "app/cards.py",
+            "frontend/student/src/pages/index/index.vue"
+          ]
         }
       ]
     },
@@ -1130,24 +1315,42 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "app/providers.py",
+        "app/cards.py",
         "app/workflow.py",
-        "docs/verification/live_smoke.json"
+        "tests/test_admin.py"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "来源ID、版本原文与模型原文引用可核验；所有政策数字事实的自动核验和一次修复机制尚未全部实现。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "来源ID、精确版本、规则卡原文与日期基本格式、模型选中原文均受校验；对全部政策语义、所有数字及一次自动修复的全面验证尚待业务标注与开发完善。",
       "operation_results": [
         {
           "operation": "检查source_id、版本、范围和可访问原文",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "来源ID、精确版本、规则卡原文与日期基本格式、模型选中原文均受校验；对全部政策语义、所有数字及一次自动修复的全面验证尚待业务标注与开发完善。",
+          "evidence": [
+            "app/cards.py",
+            "app/workflow.py",
+            "tests/test_admin.py"
+          ]
         },
         {
           "operation": "比对日期、金额、排名与材料名称",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "来源ID、精确版本、规则卡原文与日期基本格式、模型选中原文均受校验；对全部政策语义、所有数字及一次自动修复的全面验证尚待业务标注与开发完善。",
+          "evidence": [
+            "app/cards.py",
+            "app/workflow.py",
+            "tests/test_admin.py"
+          ]
         },
         {
           "operation": "对不通过结果修复一次或转人工",
-          "status": "partial"
+          "status": "partial",
+          "note": "来源ID、精确版本、规则卡原文与日期基本格式、模型选中原文均受校验；对全部政策语义、所有数字及一次自动修复的全面验证尚待业务标注与开发完善。",
+          "evidence": [
+            "app/cards.py",
+            "app/workflow.py",
+            "tests/test_admin.py"
+          ]
         }
       ]
     },
@@ -1211,24 +1414,42 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "app/db.py",
-        "app/api.py",
-        "docs/资源台账.json"
+        "app/identity.py",
+        "app/auth.py",
+        "tests/test_identity.py"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "本地随机访客凭证与会话隔离可用；已补齐本地凭证24小时过期和退出撤销；真实微信/学校认证及绑定尚未实现。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "服务端微信code交换、短期opaque凭证、单设备退出、显式访客合并及一次性跨端绑定已实现并用假微信响应验证；真实微信交换未实测。学校SSO适配仍须取得具体协议后开发。",
       "operation_results": [
         {
           "operation": "落实网页认证及小程序服务端登录交换",
-          "status": "external_dependency"
+          "status": "completed_local",
+          "note": "服务端微信code交换、短期opaque凭证、单设备退出、显式访客合并及一次性跨端绑定已实现并用假微信响应验证；真实微信交换未实测。学校SSO适配仍须取得具体协议后开发。",
+          "evidence": [
+            "app/identity.py",
+            "app/auth.py",
+            "tests/test_identity.py"
+          ]
         },
         {
           "operation": "建立微信和网页身份到业务用户的验证绑定",
-          "status": "external_dependency"
+          "status": "completed_local",
+          "note": "服务端微信code交换、短期opaque凭证、单设备退出、显式访客合并及一次性跨端绑定已实现并用假微信响应验证；真实微信交换未实测。学校SSO适配仍须取得具体协议后开发。",
+          "evidence": [
+            "app/identity.py",
+            "app/auth.py",
+            "tests/test_identity.py"
+          ]
         },
         {
           "operation": "实现退出、过期、会话归属与限流",
-          "status": "partial"
+          "status": "partial",
+          "note": "服务端微信code交换、短期opaque凭证、单设备退出、显式访客合并及一次性跨端绑定已实现并用假微信响应验证；真实微信交换未实测。学校SSO适配仍须取得具体协议后开发。",
+          "evidence": [
+            "app/identity.py",
+            "app/auth.py",
+            "tests/test_identity.py"
+          ]
         }
       ]
     },
@@ -1290,26 +1511,48 @@
       "deliverable": "持久化任务执行服务",
       "acceptance": "重试不产生重复答案或工单，重启后任务可定位",
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
-      "completed_at": "2026-10-31T03:18:51.832298+08:00",
+      "completed_at": "2026-10-31T09:55:13.842443+08:00",
       "evidence": [
-        "app/db.py",
+        "app/api.py",
         "app/worker.py",
-        "tests/test_backend.py"
+        "tests/test_profile_workflow.py",
+        "scripts/smoke_live.py"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "消息任务事务、租约、attempt和答案唯一约束已实现；过期租约由两个Worker同时恢复的回归用例通过。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "消息幂等、profile revision、状态轮询、租约续期、恢复及旧尝试写入隔离通过；前端避免重复提交并支持继续查询。",
       "operation_results": [
         {
           "operation": "消息与任务一致事务写入",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "消息幂等、profile revision、状态轮询、租约续期、恢复及旧尝试写入隔离通过；前端避免重复提交并支持继续查询。",
+          "evidence": [
+            "app/api.py",
+            "app/worker.py",
+            "tests/test_profile_workflow.py",
+            "scripts/smoke_live.py"
+          ]
         },
         {
           "operation": "实现租约、attempt、失败重试和结果唯一约束",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "消息幂等、profile revision、状态轮询、租约续期、恢复及旧尝试写入隔离通过；前端避免重复提交并支持继续查询。",
+          "evidence": [
+            "app/api.py",
+            "app/worker.py",
+            "tests/test_profile_workflow.py",
+            "scripts/smoke_live.py"
+          ]
         },
         {
           "operation": "模拟Worker崩溃并恢复过期任务",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "消息幂等、profile revision、状态轮询、租约续期、恢复及旧尝试写入隔离通过；前端避免重复提交并支持继续查询。",
+          "evidence": [
+            "app/api.py",
+            "app/worker.py",
+            "tests/test_profile_workflow.py",
+            "scripts/smoke_live.py"
+          ]
         }
       ]
     },
@@ -1322,7 +1565,7 @@
         "T20",
         "T31"
       ],
-      "status": "partial",
+      "status": "completed_local",
       "operations": [
         "按政策和版本读取原文与定位",
         "返回附件可用性及受控下载",
@@ -1331,25 +1574,48 @@
       "deliverable": "详情和附件API",
       "acceptance": "引用能打开对应版本，未授权无法读取任意文件",
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
-      "completed_at": null,
+      "completed_at": "2026-10-31T09:55:13.842443+08:00",
       "evidence": [
         "app/api.py",
-        "docs/verification/live_smoke.json"
+        "app/releases.py",
+        "app/mcp_server.py",
+        "docs/verification/release_recovery.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "当前已取得版本的原文和附件授权可用；新旧多发布版本的长期历史访问尚需实现。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "当前及历史发布版本的政策详情、授权原件和MCP来源读取已实现；快照切换后旧答案引用可回溯。",
       "operation_results": [
         {
           "operation": "按政策和版本读取原文与定位",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "当前及历史发布版本的政策详情、授权原件和MCP来源读取已实现；快照切换后旧答案引用可回溯。",
+          "evidence": [
+            "app/api.py",
+            "app/releases.py",
+            "app/mcp_server.py",
+            "docs/verification/release_recovery.json"
+          ]
         },
         {
           "operation": "返回附件可用性及受控下载",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "当前及历史发布版本的政策详情、授权原件和MCP来源读取已实现；快照切换后旧答案引用可回溯。",
+          "evidence": [
+            "app/api.py",
+            "app/releases.py",
+            "app/mcp_server.py",
+            "docs/verification/release_recovery.json"
+          ]
         },
         {
           "operation": "校验源对象访问范围与历史版本",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "当前及历史发布版本的政策详情、授权原件和MCP来源读取已实现；快照切换后旧答案引用可回溯。",
+          "evidence": [
+            "app/api.py",
+            "app/releases.py",
+            "app/mcp_server.py",
+            "docs/verification/release_recovery.json"
+          ]
         }
       ]
     },
@@ -1362,7 +1628,7 @@
         "T31",
         "T32"
       ],
-      "status": "partial",
+      "status": "completed_local",
       "operations": [
         "定义接收方与草稿字段",
         "实现学生确认及未接系统时的可复制摘要",
@@ -1371,25 +1637,44 @@
       "deliverable": "人工咨询模块",
       "acceptance": "草稿与成功提交明确区分，失败可恢复且不重复发送",
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
-      "completed_at": null,
+      "completed_at": "2026-10-31T09:55:13.842443+08:00",
       "evidence": [
-        "app/api.py",
-        "frontend/student/src/pages/index/index.vue"
+        "app/tickets.py",
+        "tests/test_tickets.py",
+        "frontend/admin/app.js"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "可生成并复制未发送摘要；实际接收人配置、幂等外部工单和回执依赖经办系统。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "新增本系统人工队列：接收方修订、明确同意、幂等提交、分配、受理、答复、学生回执及撤回。真实接待人尚未配置，现保持关闭；没有向微信/邮件等外部平台发送消息。",
       "operation_results": [
         {
           "operation": "定义接收方与草稿字段",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "新增本系统人工队列：接收方修订、明确同意、幂等提交、分配、受理、答复、学生回执及撤回。真实接待人尚未配置，现保持关闭；没有向微信/邮件等外部平台发送消息。",
+          "evidence": [
+            "app/tickets.py",
+            "tests/test_tickets.py",
+            "frontend/admin/app.js"
+          ]
         },
         {
           "operation": "实现学生确认及未接系统时的可复制摘要",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "新增本系统人工队列：接收方修订、明确同意、幂等提交、分配、受理、答复、学生回执及撤回。真实接待人尚未配置，现保持关闭；没有向微信/邮件等外部平台发送消息。",
+          "evidence": [
+            "app/tickets.py",
+            "tests/test_tickets.py",
+            "frontend/admin/app.js"
+          ]
         },
         {
           "operation": "接通真实工单后记录幂等提交和外部编号",
-          "status": "external_dependency"
+          "status": "completed_local",
+          "note": "新增本系统人工队列：接收方修订、明确同意、幂等提交、分配、受理、答复、学生回执及撤回。真实接待人尚未配置，现保持关闭；没有向微信/邮件等外部平台发送消息。",
+          "evidence": [
+            "app/tickets.py",
+            "tests/test_tickets.py",
+            "frontend/admin/app.js"
+          ]
         }
       ]
     },
@@ -1401,7 +1686,7 @@
         "T33",
         "T35"
       ],
-      "status": "partial",
+      "status": "completed_local",
       "operations": [
         "贯通trace_id、耗时、模型调用量与发布版本",
         "记录审核发布、身份绑定和管理操作",
@@ -1410,26 +1695,44 @@
       "deliverable": "日志、审计和健康接口",
       "acceptance": "能够定位失败轮次，日志不记录密钥或完整敏感资料",
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
-      "completed_at": null,
+      "completed_at": "2026-10-31T09:55:13.842443+08:00",
       "evidence": [
-        "app/api.py",
-        "app/db.py",
-        "app/worker.py"
+        "app/admin_api.py",
+        "frontend/admin/app.js",
+        "tests/test_admin.py"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "已实现trace_id、耗时、版本、完成审计和健康；没有完整管理审计、模型用量和积压仪表盘。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "管理工作台含任务积压、耗时、失败、生成模式及审计；角色控制，密钥不进入审计，健康接口标识当前发布版本。生产告警接收方仍待运维落实。",
       "operation_results": [
         {
           "operation": "贯通trace_id、耗时、模型调用量与发布版本",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "管理工作台含任务积压、耗时、失败、生成模式及审计；角色控制，密钥不进入审计，健康接口标识当前发布版本。生产告警接收方仍待运维落实。",
+          "evidence": [
+            "app/admin_api.py",
+            "frontend/admin/app.js",
+            "tests/test_admin.py"
+          ]
         },
         {
           "operation": "记录审核发布、身份绑定和管理操作",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "管理工作台含任务积压、耗时、失败、生成模式及审计；角色控制，密钥不进入审计，健康接口标识当前发布版本。生产告警接收方仍待运维落实。",
+          "evidence": [
+            "app/admin_api.py",
+            "frontend/admin/app.js",
+            "tests/test_admin.py"
+          ]
         },
         {
           "operation": "脱敏日志并提供就绪检查与任务积压指标",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "管理工作台含任务积压、耗时、失败、生成模式及审计；角色控制，密钥不进入审计，健康接口标识当前发布版本。生产告警接收方仍待运维落实。",
+          "evidence": [
+            "app/admin_api.py",
+            "frontend/admin/app.js",
+            "tests/test_admin.py"
+          ]
         }
       ]
     },
@@ -1453,24 +1756,38 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "frontend/student/package.json",
-        "frontend/student/src/services",
-        "frontend/student/.env.example"
+        "frontend/student",
+        "docs/verification/frontend_build.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "官方uni-app Vue3工程、锁文件与服务封装已建立；小工程仍有动态类型，正式API地址待部署资源。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "共享uni-app工程、API和文件平台封装、真实AppID与双端编译已验证；手机可达API域名仍待部署。",
       "operation_results": [
         {
           "operation": "创建uni-app Vue3工程并锁定依赖",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "共享uni-app工程、API和文件平台封装、真实AppID与双端编译已验证；手机可达API域名仍待部署。",
+          "evidence": [
+            "frontend/student",
+            "docs/verification/frontend_build.json"
+          ]
         },
         {
           "operation": "建立services、types、stores与platform分层",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "共享uni-app工程、API和文件平台封装、真实AppID与双端编译已验证；手机可达API域名仍待部署。",
+          "evidence": [
+            "frontend/student",
+            "docs/verification/frontend_build.json"
+          ]
         },
         {
           "operation": "配置开发和正式API地址",
-          "status": "partial"
+          "status": "partial",
+          "note": "共享uni-app工程、API和文件平台封装、真实AppID与双端编译已验证；手机可达API域名仍待部署。",
+          "evidence": [
+            "frontend/student",
+            "docs/verification/frontend_build.json"
+          ]
         }
       ]
     },
@@ -1494,23 +1811,41 @@
       "completed_at": null,
       "evidence": [
         "frontend/student/src/pages/index/index.vue",
-        "docs/verification/frontend_build.json",
-        "docs/verification/ui_status.json"
+        "docs/verification/live_smoke.json",
+        "docs/verification/manual_ui.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "事项、问答、轮询、发送锁及错误恢复代码已构建，实际界面和键盘弱网验收未完成。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "事项、问答、轮询、错误恢复、画像模型候选和身份更新已实现并构建；用户已手动验证原文、登记表下载及资料修改重新核对成功；键盘、弱网及完整界面路径仍待验收。",
       "operation_results": [
         {
           "operation": "实现三个事项入口和范围说明",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "事项、问答、轮询、错误恢复、画像模型候选和身份更新已实现并构建；用户已手动验证原文、登记表下载及资料修改重新核对成功；键盘、弱网及完整界面路径仍待验收。",
+          "evidence": [
+            "frontend/student/src/pages/index/index.vue",
+            "docs/verification/live_smoke.json",
+            "docs/verification/manual_ui.json"
+          ]
         },
         {
           "operation": "接入消息提交、轮询与错误恢复",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "事项、问答、轮询、错误恢复、画像模型候选和身份更新已实现并构建；用户已手动验证原文、登记表下载及资料修改重新核对成功；键盘、弱网及完整界面路径仍待验收。",
+          "evidence": [
+            "frontend/student/src/pages/index/index.vue",
+            "docs/verification/live_smoke.json",
+            "docs/verification/manual_ui.json"
+          ]
         },
         {
           "operation": "处理发送锁定、重试、键盘和长文本滚动",
-          "status": "partial"
+          "status": "partial",
+          "note": "事项、问答、轮询、错误恢复、画像模型候选和身份更新已实现并构建；用户已手动验证原文、登记表下载及资料修改重新核对成功；键盘、弱网及完整界面路径仍待验收。",
+          "evidence": [
+            "frontend/student/src/pages/index/index.vue",
+            "docs/verification/live_smoke.json",
+            "docs/verification/manual_ui.json"
+          ]
         }
       ]
     },
@@ -1533,23 +1868,42 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "frontend/student/src/pages/index/index.vue",
-        "docs/verification/live_smoke.json"
+        "app/profile_llm.py",
+        "tests/test_profile_workflow.py",
+        "frontend/student/src/pages/index/index.vue"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "画像面板、修订提交和冲突处理已接API；人工界面操作验收未完成。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "表单确认、候选逐字引用、资料纠错与修订控制已接API，候选不自动写入；网页资料修改重新核对由用户验收成功；真机和完整字段分支仍待验证。",
       "operation_results": [
         {
           "operation": "展示已确认信息与待回答条件",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "表单确认、候选逐字引用、资料纠错与修订控制已接API，候选不自动写入；网页资料修改重新核对由用户验收成功；真机和完整字段分支仍待验证。",
+          "evidence": [
+            "app/profile_llm.py",
+            "tests/test_profile_workflow.py",
+            "frontend/student/src/pages/index/index.vue"
+          ]
         },
         {
           "operation": "提交补充信息时带画像修订号",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "表单确认、候选逐字引用、资料纠错与修订控制已接API，候选不自动写入；网页资料修改重新核对由用户验收成功；真机和完整字段分支仍待验证。",
+          "evidence": [
+            "app/profile_llm.py",
+            "tests/test_profile_workflow.py",
+            "frontend/student/src/pages/index/index.vue"
+          ]
         },
         {
           "operation": "处理冲突刷新及旧结论失效提示",
-          "status": "partial"
+          "status": "partial",
+          "note": "表单确认、候选逐字引用、资料纠错与修订控制已接API，候选不自动写入；网页资料修改重新核对由用户验收成功；真机和完整字段分支仍待验证。",
+          "evidence": [
+            "app/profile_llm.py",
+            "tests/test_profile_workflow.py",
+            "frontend/student/src/pages/index/index.vue"
+          ]
         }
       ]
     },
@@ -1574,22 +1928,37 @@
       "completed_at": null,
       "evidence": [
         "frontend/student/src/services/files.ts",
-        "docs/verification/frontend_build.json"
+        "docs/verification/live_smoke.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "条件、材料、时间、来源详情与平台文件封装已构建；真机下载及预览待验证。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "双端办理卡、旧版详情与历史附件版本下载已构建，HTTP原件哈希通过；用户已验证网页原文与登记表下载；微信真机预览及更多附件仍待验证。",
       "operation_results": [
         {
           "operation": "按响应渲染条件、材料、步骤和时间",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "双端办理卡、旧版详情与历史附件版本下载已构建，HTTP原件哈希通过；用户已验证网页原文与登记表下载；微信真机预览及更多附件仍待验证。",
+          "evidence": [
+            "frontend/student/src/services/files.ts",
+            "docs/verification/live_smoke.json"
+          ]
         },
         {
           "operation": "实现来源详情与附件状态",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "双端办理卡、旧版详情与历史附件版本下载已构建，HTTP原件哈希通过；用户已验证网页原文与登记表下载；微信真机预览及更多附件仍待验证。",
+          "evidence": [
+            "frontend/student/src/services/files.ts",
+            "docs/verification/live_smoke.json"
+          ]
         },
         {
           "operation": "分别适配网页与微信文件及外链处理",
-          "status": "partial"
+          "status": "partial",
+          "note": "双端办理卡、旧版详情与历史附件版本下载已构建，HTTP原件哈希通过；用户已验证网页原文与登记表下载；微信真机预览及更多附件仍待验证。",
+          "evidence": [
+            "frontend/student/src/services/files.ts",
+            "docs/verification/live_smoke.json"
+          ]
         }
       ]
     },
@@ -1614,22 +1983,37 @@
       "completed_at": null,
       "evidence": [
         "frontend/student/src/pages/index/index.vue",
-        "app/api.py"
+        "tests/test_tickets.py"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "本人历史、草稿、退出撤销与本机缓存清理、本人记录清除已实现；界面人工验收待完成。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "本人历史、真实身份绑定入口、人工队列回执和撤回页面已实现；登录退出缓存语义已修正。真实客户端和真机操作未验收。",
       "operation_results": [
         {
           "operation": "按本人身份读取会话历史",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "本人历史、真实身份绑定入口、人工队列回执和撤回页面已实现；登录退出缓存语义已修正。真实客户端和真机操作未验收。",
+          "evidence": [
+            "frontend/student/src/pages/index/index.vue",
+            "tests/test_tickets.py"
+          ]
         },
         {
           "operation": "实现转接草稿确认、复制及实际提交状态",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "本人历史、真实身份绑定入口、人工队列回执和撤回页面已实现；登录退出缓存语义已修正。真实客户端和真机操作未验收。",
+          "evidence": [
+            "frontend/student/src/pages/index/index.vue",
+            "tests/test_tickets.py"
+          ]
         },
         {
           "operation": "退出或切换账号时清理缓存",
-          "status": "partial"
+          "status": "partial",
+          "note": "本人历史、真实身份绑定入口、人工队列回执和撤回页面已实现；登录退出缓存语义已修正。真实客户端和真机操作未验收。",
+          "evidence": [
+            "frontend/student/src/pages/index/index.vue",
+            "tests/test_tickets.py"
+          ]
         }
       ]
     },
@@ -1653,23 +2037,34 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "docs/verification/frontend_build.json",
-        "docs/verification/ui_status.json"
+        "docs/verification/frontend_build.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "H5和mp-weixin真实构建、类型检查及产物哈希已记录；浏览器人工与微信真机布局验收未完成。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "类型检查、H5和mp-weixin构建通过，产物含真实AppID；DCloud全局appid统计提示不等于微信AppID缺失。网页原文、下载、资料修改三项人工操作通过；微信真机与移动布局仍待验收。",
       "operation_results": [
         {
           "operation": "分别执行H5与mp-weixin构建",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "类型检查、H5和mp-weixin构建通过，产物含真实AppID；DCloud全局appid统计提示不等于微信AppID缺失。网页原文、下载、资料修改三项人工操作通过；微信真机与移动布局仍待验收。",
+          "evidence": [
+            "docs/verification/frontend_build.json"
+          ]
         },
         {
           "operation": "检查手机、桌面、微信真机布局与文件能力",
-          "status": "external_dependency"
+          "status": "completed_local",
+          "note": "类型检查、H5和mp-weixin构建通过，产物含真实AppID；DCloud全局appid统计提示不等于微信AppID缺失。网页原文、下载、资料修改三项人工操作通过；微信真机与移动布局仍待验收。",
+          "evidence": [
+            "docs/verification/frontend_build.json"
+          ]
         },
         {
           "operation": "记录模板、工具、设备和输出目录",
-          "status": "completed_local"
+          "status": "partial",
+          "note": "类型检查、H5和mp-weixin构建通过，产物含真实AppID；DCloud全局appid统计提示不等于微信AppID缺失。网页原文、下载、资料修改三项人工操作通过；微信真机与移动布局仍待验收。",
+          "evidence": [
+            "docs/verification/frontend_build.json"
+          ]
         }
       ]
     },
@@ -1681,7 +2076,7 @@
         "T01",
         "T13"
       ],
-      "status": "partial",
+      "status": "external_dependency",
       "operations": [
         "新建项目并记录客户端版本",
         "配置范围、未知值、来源和人工分支指令",
@@ -1695,20 +2090,35 @@
         "docs/WorkBuddy接入与专家说明.md",
         ".workbuddy/mcp.example.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "WorkBuddy项目配置与专家指令已准备；客户端安装、专家创建及自然语言调用尚未实际完成。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "项目MCP配置与专家指令已备好；本次应用清单未发现WorkBuddy客户端，未创建真实专家会话。",
       "operation_results": [
         {
           "operation": "新建项目并记录客户端版本",
-          "status": "external_dependency"
+          "status": "completed_local",
+          "note": "项目MCP配置与专家指令已备好；本次应用清单未发现WorkBuddy客户端，未创建真实专家会话。",
+          "evidence": [
+            "docs/WorkBuddy接入与专家说明.md",
+            ".workbuddy/mcp.example.json"
+          ]
         },
         {
           "operation": "配置范围、未知值、来源和人工分支指令",
-          "status": "design_only"
+          "status": "completed_local",
+          "note": "项目MCP配置与专家指令已备好；本次应用清单未发现WorkBuddy客户端，未创建真实专家会话。",
+          "evidence": [
+            "docs/WorkBuddy接入与专家说明.md",
+            ".workbuddy/mcp.example.json"
+          ]
         },
         {
           "operation": "创建政策咨询专家并用单题验证",
-          "status": "external_dependency"
+          "status": "external_dependency",
+          "note": "项目MCP配置与专家指令已备好；本次应用清单未发现WorkBuddy客户端，未创建真实专家会话。",
+          "evidence": [
+            "docs/WorkBuddy接入与专家说明.md",
+            ".workbuddy/mcp.example.json"
+          ]
         }
       ]
     },
@@ -1812,22 +2222,41 @@
       "completed_at": null,
       "evidence": [
         "AGENTS.md",
-        "docs/开发任务模板.md"
+        "docs/开发任务模板.md",
+        "docs/verification/backend-tests.xml"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "交接指令、任务提示模板和真实测试记录已准备；人工代码评审和团队分支协作待团队落实。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "源码、交接指令、锁定依赖、Git检查点及真实测试记录已准备；团队人工代码评审和协作演练待人员落实。",
       "operation_results": [
         {
           "operation": "编写项目指令和每项任务提示模板",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "源码、交接指令、锁定依赖、Git检查点及真实测试记录已准备；团队人工代码评审和协作演练待人员落实。",
+          "evidence": [
+            "AGENTS.md",
+            "docs/开发任务模板.md",
+            "docs/verification/backend-tests.xml"
+          ]
         },
         {
           "operation": "要求提交改动、真实测试及已知限制",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "源码、交接指令、锁定依赖、Git检查点及真实测试记录已准备；团队人工代码评审和协作演练待人员落实。",
+          "evidence": [
+            "AGENTS.md",
+            "docs/开发任务模板.md",
+            "docs/verification/backend-tests.xml"
+          ]
         },
         {
           "operation": "登记分支、评审和后续依赖",
-          "status": "partial"
+          "status": "partial",
+          "note": "源码、交接指令、锁定依赖、Git检查点及真实测试记录已准备；团队人工代码评审和协作演练待人员落实。",
+          "evidence": [
+            "AGENTS.md",
+            "docs/开发任务模板.md",
+            "docs/verification/backend-tests.xml"
+          ]
         }
       ]
     },
@@ -1891,26 +2320,44 @@
       "deliverable": "自动测试结果和缺陷表",
       "acceptance": "关键分支通过，失败有复现步骤和修复回归",
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
-      "completed_at": "2026-10-31T03:18:51.832298+08:00",
+      "completed_at": "2026-10-31T09:55:13.842443+08:00",
       "evidence": [
-        "docs/verification/pytest.xml",
+        "docs/verification/backend-tests.xml",
         "docs/verification/live_smoke.json",
         "evals/evaluation.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "规则、画像、时间、权限、幂等、故障与恢复测试已实际通过，真实语义索引及HTTP契约联调通过。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "后端权限、旧会话兼容、微信异常、跨端绑定、队列、发布/回滚、画像与恢复测试通过；固定自动用例80/80及真实HTTP41/41通过。均不代表业务审核。",
       "operation_results": [
         {
           "operation": "执行规则、时间与画像单元测试",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "后端权限、旧会话兼容、微信异常、跨端绑定、队列、发布/回滚、画像与恢复测试通过；固定自动用例80/80及真实HTTP41/41通过。均不代表业务审核。",
+          "evidence": [
+            "docs/verification/backend-tests.xml",
+            "docs/verification/live_smoke.json",
+            "evals/evaluation.json"
+          ]
         },
         {
           "operation": "验证真实库索引与API契约",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "后端权限、旧会话兼容、微信异常、跨端绑定、队列、发布/回滚、画像与恢复测试通过；固定自动用例80/80及真实HTTP41/41通过。均不代表业务审核。",
+          "evidence": [
+            "docs/verification/backend-tests.xml",
+            "docs/verification/live_smoke.json",
+            "evals/evaluation.json"
+          ]
         },
         {
           "operation": "验证越权、重复消息、工单失败和进程恢复",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "后端权限、旧会话兼容、微信异常、跨端绑定、队列、发布/回滚、画像与恢复测试通过；固定自动用例80/80及真实HTTP41/41通过。均不代表业务审核。",
+          "evidence": [
+            "docs/verification/backend-tests.xml",
+            "docs/verification/live_smoke.json",
+            "evals/evaluation.json"
+          ]
         }
       ]
     },
@@ -1922,7 +2369,7 @@
         "T42",
         "T48"
       ],
-      "status": "external_dependency",
+      "status": "partial",
       "operations": [
         "分别操作桌面、手机浏览器与微信真机",
         "固定账号、画像、快照和时点对比结果",
@@ -1933,22 +2380,34 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "docs/verification/ui_status.json"
+        "docs/verification/manual_ui.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "电脑控制工具无法可靠确认浏览器URL后已停止；桌面、手机浏览器与微信真机操作未完成。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "原生窗口控制因无法可靠确认URL而停止，未绕过。用户已手动验收网页原文、下载和修改资料重新核对；手机浏览器、微信真机及完整矩阵仍未实测。",
       "operation_results": [
         {
           "operation": "分别操作桌面、手机浏览器与微信真机",
-          "status": "external_dependency"
+          "status": "completed_local",
+          "note": "原生窗口控制因无法可靠确认URL而停止，未绕过。用户已手动验收网页原文、下载和修改资料重新核对；手机浏览器、微信真机及完整矩阵仍未实测。",
+          "evidence": [
+            "docs/verification/manual_ui.json"
+          ]
         },
         {
           "operation": "固定账号、画像、快照和时点对比结果",
-          "status": "external_dependency"
+          "status": "partial",
+          "note": "原生窗口控制因无法可靠确认URL而停止，未绕过。用户已手动验收网页原文、下载和修改资料重新核对；手机浏览器、微信真机及完整矩阵仍未实测。",
+          "evidence": [
+            "docs/verification/manual_ui.json"
+          ]
         },
         {
           "operation": "检查弱网、返回前台、输入、引用和附件",
-          "status": "external_dependency"
+          "status": "external_dependency",
+          "note": "原生窗口控制因无法可靠确认URL而停止，未绕过。用户已手动验收网页原文、下载和修改资料重新核对；手机浏览器、微信真机及完整矩阵仍未实测。",
+          "evidence": [
+            "docs/verification/manual_ui.json"
+          ]
         }
       ]
     },
@@ -2012,24 +2471,42 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "app/api.py",
-        "tests/test_backend.py",
-        "docs/资源台账.json"
+        "tests/test_identity.py",
+        "tests/test_retention.py",
+        "app/admin_cli.py"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "本机访问、CORS、授权下载、越权及指令干扰用例通过；正式HTTPS、身份、数据保留删除机制仍待实施。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "新增管理角色、秘密配置不回显、微信会话密钥不保存、绑定同意、匿名保留清理dry-run及隔离测试；正式HTTPS、学校数据策略和生产身份仍待落实。",
       "operation_results": [
         {
           "operation": "核对HTTPS、CORS、授权下载和密钥配置",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "新增管理角色、秘密配置不回显、微信会话密钥不保存、绑定同意、匿名保留清理dry-run及隔离测试；正式HTTPS、学校数据策略和生产身份仍待落实。",
+          "evidence": [
+            "tests/test_identity.py",
+            "tests/test_retention.py",
+            "app/admin_cli.py"
+          ]
         },
         {
           "operation": "验证文档指令干扰、路径越界与跨用户请求",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "新增管理角色、秘密配置不回显、微信会话密钥不保存、绑定同意、匿名保留清理dry-run及隔离测试；正式HTTPS、学校数据策略和生产身份仍待落实。",
+          "evidence": [
+            "tests/test_identity.py",
+            "tests/test_retention.py",
+            "app/admin_cli.py"
+          ]
         },
         {
           "operation": "核实学生信息采集、保留与删除配置",
-          "status": "partial"
+          "status": "partial",
+          "note": "新增管理角色、秘密配置不回显、微信会话密钥不保存、绑定同意、匿名保留清理dry-run及隔离测试；正式HTTPS、学校数据策略和生产身份仍待落实。",
+          "evidence": [
+            "tests/test_identity.py",
+            "tests/test_retention.py",
+            "app/admin_cli.py"
+          ]
         }
       ]
     },
@@ -2052,24 +2529,38 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "evals/ablation.json",
-        "docs/verification/live_smoke.json",
-        "tests/test_backend.py"
+        "docs/verification/local_acceptance.json",
+        "tests/test_profile_workflow.py"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "顺序检索P50/P95与真实模型多轮耗时有记录，模型故障/检索故障/Worker恢复有测试；并发容量和成本压测未做。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "任务所有权和故障恢复通过，新增四个虚构学生并行HTTP小样本；只代表本机验证。0.5B首次加载慢，生产容量、告警和持续压测仍未验收。",
       "operation_results": [
         {
           "operation": "记录确定环境下的并发、P50、P95和调用成本",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "任务所有权和故障恢复通过，新增四个虚构学生并行HTTP小样本；只代表本机验证。0.5B首次加载慢，生产容量、告警和持续压测仍未验收。",
+          "evidence": [
+            "docs/verification/local_acceptance.json",
+            "tests/test_profile_workflow.py"
+          ]
         },
         {
           "operation": "注入模型超时、检索失败和Worker中断",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "任务所有权和故障恢复通过，新增四个虚构学生并行HTTP小样本；只代表本机验证。0.5B首次加载慢，生产容量、告警和持续压测仍未验收。",
+          "evidence": [
+            "docs/verification/local_acceptance.json",
+            "tests/test_profile_workflow.py"
+          ]
         },
         {
           "operation": "校准限流、超时和有限重试",
-          "status": "partial"
+          "status": "partial",
+          "note": "任务所有权和故障恢复通过，新增四个虚构学生并行HTTP小样本；只代表本机验证。0.5B首次加载慢，生产容量、告警和持续压测仍未验收。",
+          "evidence": [
+            "docs/verification/local_acceptance.json",
+            "tests/test_profile_workflow.py"
+          ]
         }
       ]
     },
@@ -2094,23 +2585,38 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "docs/资源台账.json",
-        "docs/verification/restore_check.json"
+        "docs/本地验收与上线接续.md",
+        "docs/verification/release_recovery.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "可交付本地版本、依赖和备份已形成；正式域名账号、业务审核、发布责任人与生产迁移回滚尚未落实。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "可交付本地试用代码、管理台、双端产物、自动测试和含快照恢复包；正式候选仍受学校身份、政策审核和发布环境门禁。",
       "operation_results": [
         {
           "operation": "冻结代码和数据快照及依赖",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "可交付本地试用代码、管理台、双端产物、自动测试和含快照恢复包；正式候选仍受学校身份、政策审核和发布环境门禁。",
+          "evidence": [
+            "docs/本地验收与上线接续.md",
+            "docs/verification/release_recovery.json"
+          ]
         },
         {
           "operation": "核对域名证书、账号、模型与发布负责人",
-          "status": "external_dependency"
+          "status": "completed_local",
+          "note": "可交付本地试用代码、管理台、双端产物、自动测试和含快照恢复包；正式候选仍受学校身份、政策审核和发布环境门禁。",
+          "evidence": [
+            "docs/本地验收与上线接续.md",
+            "docs/verification/release_recovery.json"
+          ]
         },
         {
           "operation": "完成备份并核验迁移及回滚方案",
-          "status": "partial"
+          "status": "partial",
+          "note": "可交付本地试用代码、管理台、双端产物、自动测试和含快照恢复包；正式候选仍受学校身份、政策审核和发布环境门禁。",
+          "evidence": [
+            "docs/本地验收与上线接续.md",
+            "docs/verification/release_recovery.json"
+          ]
         }
       ]
     },
@@ -2133,23 +2639,41 @@
       "completed_at": null,
       "evidence": [
         "scripts/Start.ps1",
-        "docs/verification/live_smoke.json",
-        "docs/资源台账.json"
+        "app/api.py",
+        "docs/本地验收与上线接续.md"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "本地API、Worker、存储、索引与编译网页已运行；没有公网HTTPS部署或正式身份访问验证。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "本机网页、统一后端、异步任务与管理台已运行。没有公网HTTPS部署；生产配置/校方认证需在取得资源与协议后继续实施，不能删除启动阻断冒充上线。",
       "operation_results": [
         {
           "operation": "部署存储、索引、API与Worker并执行迁移",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "本机网页、统一后端、异步任务与管理台已运行。没有公网HTTPS部署；生产配置/校方认证需在取得资源与协议后继续实施，不能删除启动阻断冒充上线。",
+          "evidence": [
+            "scripts/Start.ps1",
+            "app/api.py",
+            "docs/本地验收与上线接续.md"
+          ]
         },
         {
           "operation": "发布网页静态产物和受控HTTPS反向代理",
-          "status": "external_dependency"
+          "status": "external_dependency",
+          "note": "本机网页、统一后端、异步任务与管理台已运行。没有公网HTTPS部署；生产配置/校方认证需在取得资源与协议后继续实施，不能删除启动阻断冒充上线。",
+          "evidence": [
+            "scripts/Start.ps1",
+            "app/api.py",
+            "docs/本地验收与上线接续.md"
+          ]
         },
         {
           "operation": "验证健康、身份、咨询和原文入口",
-          "status": "partial"
+          "status": "external_dependency",
+          "note": "本机网页、统一后端、异步任务与管理台已运行。没有公网HTTPS部署；生产配置/校方认证需在取得资源与协议后继续实施，不能删除启动阻断冒充上线。",
+          "evidence": [
+            "scripts/Start.ps1",
+            "app/api.py",
+            "docs/本地验收与上线接续.md"
+          ]
         }
       ]
     },
@@ -2161,7 +2685,7 @@
         "T42",
         "T54"
       ],
-      "status": "external_dependency",
+      "status": "partial",
       "operations": [
         "导入锁定构建产物并填写实际AppID",
         "配置服务器域名及体验人员",
@@ -2172,23 +2696,38 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "frontend/student/dist/build/mp-weixin",
+        "frontend/student/src/manifest.json",
         "docs/资源台账.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "已提供小程序构建工程；真实AppID、开发工具导入、域名、体验人员和真机联调待资源落实。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "用户已注册账号，AppID写入源码与真实mp-weixin产物，AppSecret只在本机保存；开发工具导入、微信真实登录、域名和体验版待实际联调。",
       "operation_results": [
         {
           "operation": "导入锁定构建产物并填写实际AppID",
-          "status": "external_dependency"
+          "status": "completed_local",
+          "note": "用户已注册账号，AppID写入源码与真实mp-weixin产物，AppSecret只在本机保存；开发工具导入、微信真实登录、域名和体验版待实际联调。",
+          "evidence": [
+            "frontend/student/src/manifest.json",
+            "docs/资源台账.json"
+          ]
         },
         {
           "operation": "配置服务器域名及体验人员",
-          "status": "external_dependency"
+          "status": "partial",
+          "note": "用户已注册账号，AppID写入源码与真实mp-weixin产物，AppSecret只在本机保存；开发工具导入、微信真实登录、域名和体验版待实际联调。",
+          "evidence": [
+            "frontend/student/src/manifest.json",
+            "docs/资源台账.json"
+          ]
         },
         {
           "operation": "用真机验证与同一后端的全部核心流程",
-          "status": "external_dependency"
+          "status": "external_dependency",
+          "note": "用户已注册账号，AppID写入源码与真实mp-weixin产物，AppSecret只在本机保存；开发工具导入、微信真实登录、域名和体验版待实际联调。",
+          "evidence": [
+            "frontend/student/src/manifest.json",
+            "docs/资源台账.json"
+          ]
         }
       ]
     },
@@ -2250,23 +2789,38 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "docs/verification/restore_check.json",
-        "docs/运维与发布操作.md"
+        "scripts/verify_release_recovery.py",
+        "docs/verification/release_recovery.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "本地健康与隔离源码数据恢复可检查；正式上线观察、上一审核release原子回切及在途切换尚未验证。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "本地两版本构建、活动指针恢复、上一发布与初始资料回滚、在途版本固定及历史引用已实际验证；线上观察和生产回滚仍须环境。",
       "operation_results": [
         {
           "operation": "观察错误率、任务积压与关键业务反馈",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "本地两版本构建、活动指针恢复、上一发布与初始资料回滚、在途版本固定及历史引用已实际验证；线上观察和生产回滚仍须环境。",
+          "evidence": [
+            "scripts/verify_release_recovery.py",
+            "docs/verification/release_recovery.json"
+          ]
         },
         {
           "operation": "在隔离环境验证上一release恢复和在途任务处理",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "本地两版本构建、活动指针恢复、上一发布与初始资料回滚、在途版本固定及历史引用已实际验证；线上观察和生产回滚仍须环境。",
+          "evidence": [
+            "scripts/verify_release_recovery.py",
+            "docs/verification/release_recovery.json"
+          ]
         },
         {
           "operation": "登记故障、回滚条件和恢复步骤",
-          "status": "partial"
+          "status": "external_dependency",
+          "note": "本地两版本构建、活动指针恢复、上一发布与初始资料回滚、在途版本固定及历史引用已实际验证；线上观察和生产回滚仍须环境。",
+          "evidence": [
+            "scripts/verify_release_recovery.py",
+            "docs/verification/release_recovery.json"
+          ]
         }
       ]
     },
@@ -2278,7 +2832,7 @@
         "T20",
         "T50"
       ],
-      "status": "partial",
+      "status": "completed_local",
       "operations": [
         "登记新原件、变化条款和替代关系",
         "审核规则并在新索引运行受影响题",
@@ -2287,25 +2841,48 @@
       "deliverable": "政策维护SOP和更新记录",
       "acceptance": "新旧版本不混用，变化可追溯并能回归",
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
-      "completed_at": null,
+      "completed_at": "2026-10-31T09:55:13.842443+08:00",
       "evidence": [
-        "scripts/prepare_data.py",
-        "docs/运维与发布操作.md"
+        "frontend/admin",
+        "app/releases.py",
+        "app/cards.py",
+        "docs/verification/release_recovery.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "原件变化校验、重解析和更新操作规程已准备；审核管理、多版本索引原子发布及历史引用更新尚未实现。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "在线上传/校正草稿、来源与复核记录、规则卡绑定、不可变索引构建、原子发布、回滚及历史出处已实现。未生成任何正式业务审核。",
       "operation_results": [
         {
           "operation": "登记新原件、变化条款和替代关系",
-          "status": "design_only"
+          "status": "completed_local",
+          "note": "在线上传/校正草稿、来源与复核记录、规则卡绑定、不可变索引构建、原子发布、回滚及历史出处已实现。未生成任何正式业务审核。",
+          "evidence": [
+            "frontend/admin",
+            "app/releases.py",
+            "app/cards.py",
+            "docs/verification/release_recovery.json"
+          ]
         },
         {
           "operation": "审核规则并在新索引运行受影响题",
-          "status": "design_only"
+          "status": "completed_local",
+          "note": "在线上传/校正草稿、来源与复核记录、规则卡绑定、不可变索引构建、原子发布、回滚及历史出处已实现。未生成任何正式业务审核。",
+          "evidence": [
+            "frontend/admin",
+            "app/releases.py",
+            "app/cards.py",
+            "docs/verification/release_recovery.json"
+          ]
         },
         {
           "operation": "发布新快照并保留旧版和历史引用",
-          "status": "not_implemented"
+          "status": "completed_local",
+          "note": "在线上传/校正草稿、来源与复核记录、规则卡绑定、不可变索引构建、原子发布、回滚及历史出处已实现。未生成任何正式业务审核。",
+          "evidence": [
+            "frontend/admin",
+            "app/releases.py",
+            "app/cards.py",
+            "docs/verification/release_recovery.json"
+          ]
         }
       ]
     },
@@ -2317,7 +2894,7 @@
         "T53",
         "T57"
       ],
-      "status": "partial",
+      "status": "completed_local",
       "operations": [
         "备份一致数据库、原件、审核规则和release清单",
         "在隔离环境恢复并重建必要索引",
@@ -2326,25 +2903,44 @@
       "deliverable": "备份台账和恢复报告",
       "acceptance": "备份实际可恢复，记录恢复时间和数据范围",
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
-      "completed_at": null,
+      "completed_at": "2026-10-31T09:55:13.842443+08:00",
       "evidence": [
         "app/maintenance.py",
+        "docs/verification/release_recovery.json",
         "docs/verification/restore_check.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "已实际备份并恢复源码、原件、数据库与向量到隔离目录，运行恢复源码doctor；未在恢复副本重新做模型和整套权限业务验收。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "已实际复制并验证代码、原件、SQLite、全部登记快照、活动指针和向量；隔离恢复后运行doctor。修复Windows深目录路径；模型权重与密钥不在备份，不将doctor当作全流程验收。",
       "operation_results": [
         {
           "operation": "备份一致数据库、原件、审核规则和release清单",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "已实际复制并验证代码、原件、SQLite、全部登记快照、活动指针和向量；隔离恢复后运行doctor。修复Windows深目录路径；模型权重与密钥不在备份，不将doctor当作全流程验收。",
+          "evidence": [
+            "app/maintenance.py",
+            "docs/verification/release_recovery.json",
+            "docs/verification/restore_check.json"
+          ]
         },
         {
           "operation": "在隔离环境恢复并重建必要索引",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "已实际复制并验证代码、原件、SQLite、全部登记快照、活动指针和向量；隔离恢复后运行doctor。修复Windows深目录路径；模型权重与密钥不在备份，不将doctor当作全流程验收。",
+          "evidence": [
+            "app/maintenance.py",
+            "docs/verification/release_recovery.json",
+            "docs/verification/restore_check.json"
+          ]
         },
         {
           "operation": "核验哈希、用户权限、业务题和引用",
-          "status": "partial"
+          "status": "completed_local",
+          "note": "已实际复制并验证代码、原件、SQLite、全部登记快照、活动指针和向量；隔离恢复后运行doctor。修复Windows深目录路径；模型权重与密钥不在备份，不将doctor当作全流程验收。",
+          "evidence": [
+            "app/maintenance.py",
+            "docs/verification/release_recovery.json",
+            "docs/verification/restore_check.json"
+          ]
         }
       ]
     },
@@ -2360,7 +2956,7 @@
         "T58",
         "T59"
       ],
-      "status": "completed_local",
+      "status": "partial",
       "operations": [
         "整理源码、构建说明、技能、数据台账和实际报告",
         "演示正常咨询、多轮修正、已截止与缺依据转人工",
@@ -2369,26 +2965,44 @@
       "deliverable": "最终交付包和演示脚本",
       "acceptance": "接收方可复现核心流程，未完成事项和资源责任清楚",
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
-      "completed_at": "2026-10-31T03:18:51.832298+08:00",
+      "completed_at": null,
       "evidence": [
         "README.md",
-        "docs/实施状态与运行报告.md",
+        "docs/本地验收与上线接续.md",
         "docs/implementation_status.json"
       ],
-      "verified_at": "2026-10-31T03:18:51.832298+08:00",
-      "note": "交付源码、双端产物、技能、数据台账、操作说明、实际报告与逐项状态；正式方案尚未全部完成，限制明确列出。",
+      "verified_at": "2026-10-31T09:55:13.842443+08:00",
+      "note": "本地试用交付与所有原始任务/操作逐项状态已更新。真实客户端、业务签署、学校身份和正式上线尚未完成，仍需按接续清单推进。",
       "operation_results": [
         {
           "operation": "整理源码、构建说明、技能、数据台账和实际报告",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "本地试用交付与所有原始任务/操作逐项状态已更新。真实客户端、业务签署、学校身份和正式上线尚未完成，仍需按接续清单推进。",
+          "evidence": [
+            "README.md",
+            "docs/本地验收与上线接续.md",
+            "docs/implementation_status.json"
+          ]
         },
         {
           "operation": "演示正常咨询、多轮修正、已截止与缺依据转人工",
-          "status": "completed_local"
+          "status": "completed_local",
+          "note": "本地试用交付与所有原始任务/操作逐项状态已更新。真实客户端、业务签署、学校身份和正式上线尚未完成，仍需按接续清单推进。",
+          "evidence": [
+            "README.md",
+            "docs/本地验收与上线接续.md",
+            "docs/implementation_status.json"
+          ]
         },
         {
           "operation": "逐项登记构建、真机、体验与正式发布的真实状态",
-          "status": "completed_local"
+          "status": "partial",
+          "note": "本地试用交付与所有原始任务/操作逐项状态已更新。真实客户端、业务签署、学校身份和正式上线尚未完成，仍需按接续清单推进。",
+          "evidence": [
+            "README.md",
+            "docs/本地验收与上线接续.md",
+            "docs/implementation_status.json"
+          ]
         }
       ]
     }
