@@ -2,9 +2,9 @@
   "status": "pass",
   "scope": "官方本机WXML/WXSS语法检查；不代表模拟器、真机或平台审核通过。",
   "files": {
-    "pages/index/index.wxml": "ad0e4c909a8c0686893d7aad7d3539b9225b56c4a6594b1f2cfbe96b7f79b1f9",
+    "pages/index/index.wxml": "5f3c2edac3bef8923dbe35d3a1e41ef5799a2d24d953bcd22ce40c963b5b9b18",
     "app.wxss": "41e62a397bf727a3c637abda159dfd3fedaa0ad1be888cf919955b49d0e227c3",
-    "pages/index/index.wxss": "9ccb9a6d3c15e195b708f660cd1e9130a500d37529b71f985d8a31c87863d190"
+    "pages/index/index.wxss": "c72bb8f119d525dc513001dffa0ad9c702ac3df7b2901e26d69d9dea9bcceacd"
   },
   "checks": [
     {
@@ -12,14 +12,14 @@
       "exit_code": 0,
       "stdout": "",
       "stderr": "",
-      "duration_ms": 520
+      "duration_ms": 52
     },
     {
       "name": "wxss",
       "exit_code": 0,
       "stdout": "",
       "stderr": "",
-      "duration_ms": 434
+      "duration_ms": 46
     }
   ]
 }

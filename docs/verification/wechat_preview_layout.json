@@ -1,0 +1,96 @@
+{
+  "status": "pass",
+  "phone_tested": false,
+  "developer_debug_settings_changed": false,
+  "compile_cache_only_cleaned": true,
+  "storage_auth_session_caches_cleaned": false,
+  "ide_normally_restarted": true,
+  "page_created": true,
+  "capsule": {
+    "width": 87,
+    "height": 32,
+    "left": 296,
+    "top": 51,
+    "right": 383,
+    "bottom": 83
+  },
+  "rectangles": {
+    ".topbar": {
+      "left": 0,
+      "top": 0,
+      "right": 390,
+      "bottom": 91,
+      "width": 390,
+      "height": 91
+    },
+    ".brand": {
+      "left": 16,
+      "top": 52.5,
+      "right": 104,
+      "bottom": 84.5,
+      "width": 88,
+      "height": 32
+    },
+    ".banner-about": {
+      "left": 314.94793701171875,
+      "top": 97,
+      "right": 374.0000228881836,
+      "bottom": 125,
+      "width": 59.052085876464844,
+      "height": 28
+    },
+    ".chat-header": {
+      "left": 0,
+      "top": 132,
+      "right": 390,
+      "bottom": 213,
+      "width": 390,
+      "height": 81
+    },
+    ".chat-scroll": {
+      "left": 0,
+      "top": 213,
+      "right": 390,
+      "bottom": 656,
+      "width": 390,
+      "height": 443
+    },
+    ".composer-area": {
+      "left": 0,
+      "top": 656,
+      "right": 390,
+      "bottom": 767,
+      "width": 390,
+      "height": 111
+    },
+    ".mobile-actions": {
+      "left": 0,
+      "top": 767,
+      "right": 390,
+      "bottom": 844,
+      "width": 390,
+      "height": 77
+    }
+  },
+  "rendered_title_binding_is_string": true,
+  "native_root_class_applied": true,
+  "header_clear_of_capsule": true,
+  "about_button_below_capsule": true,
+  "header_bottom_below_capsule": true,
+  "screenshot": "docs/verification/wechat-preview-layout.png",
+  "checked_at": "2026-10-31T15:16:48.850034+08:00",
+  "source_files_sha256": {
+    "frontend/student/src/pages/index/index.vue": "3c98451024d5e79bb83d407b6308865ac0d26a50f4ebe905f62650e3dfe6c70b",
+    "frontend/student/src/services/navigation.ts": "987ef2cbcc0734125cd6c9b2113a28ebdd3230316e7fa810bb1422f249e41cd8",
+    "frontend/student/dist/build/mp-weixin/pages/index/index.js": "f6fa605af6c5e66469a95e6cd3cc493f66499c1c3412ae68fb24c3a8a85ae768",
+    "frontend/student/dist/build/mp-weixin/pages/index/index.wxml": "5f3c2edac3bef8923dbe35d3a1e41ef5799a2d24d953bcd22ce40c963b5b9b18",
+    "frontend/student/dist/build/mp-weixin/pages/index/index.wxss": "c72bb8f119d525dc513001dffa0ad9c702ac3df7b2901e26d69d9dea9bcceacd"
+  },
+  "geometry_calculation_checks": {
+    "status": "pass",
+    "window_capsule_cases": 4,
+    "invalid_capsule_fallback_cases": 3,
+    "logical_pixels_not_multiplied_by_pixel_ratio": true
+  },
+  "note": "Native simulator rectangle checks and render-binding recovery passed after project compile-cache cleanup and normal IDE restart. Element-tap SDK checks timed out; manual modal/sample confirmation pending. No phone or startup performance acceptance claimed."
+}

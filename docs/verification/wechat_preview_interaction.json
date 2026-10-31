@@ -1,0 +1,10 @@
+{
+  "status": "sdk_element_check_timeout_manual_confirmation_pending",
+  "simulator_only": true,
+  "phone_tested": false,
+  "example_consultation_only": true,
+  "attempted_ui_element_tap_method": true,
+  "real_ui_element_taps_verified": false,
+  "sample_consultation_verified": false,
+  "note": "Element-level SDK operation did not complete; do not count this as an interaction pass."
+}
