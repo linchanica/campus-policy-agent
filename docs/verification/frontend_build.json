@@ -6,21 +6,21 @@
     {
       "command": "pnpm run typecheck",
       "exit_code": 0,
-      "duration_ms": 2858,
+      "duration_ms": 4234,
       "stdout": "",
       "stderr": "$ vue-tsc --noEmit\n"
     },
     {
       "command": "pnpm run build:h5",
       "exit_code": 0,
-      "duration_ms": 12587,
+      "duration_ms": 16194,
       "stdout": "Compiler version: 5.34（vue3）\nCompiling...\n\n​The current application is not configured with Appid, and uni statistics cannot be used. For details, see https://ask.dcloud.net.cn/article/36303​\n\n\n欢迎将web站点部署到uniCloud前端网页托管平台，高速、免费、安全、省心，详见：https://uniapp.dcloud.io/uniCloud/hosting\nDONE  Build complete.\n",
       "stderr": "$ uni build\n"
     },
     {
       "command": "pnpm run build:mp-weixin",
       "exit_code": 0,
-      "duration_ms": 9700,
+      "duration_ms": 10950,
       "stdout": "Compiler version: 5.34（vue3）\nCompiling...\n\n​The current application is not configured with Appid, and uni statistics cannot be used. For details, see https://ask.dcloud.net.cn/article/36303​\n\nDONE  Build complete.\nRun method: open Weixin Mini Program Devtools, import dist\\build\\mp-weixin run.\n",
       "stderr": "$ uni build -p mp-weixin\n"
     }
@@ -32,7 +32,7 @@
     },
     "mp-weixin/app.json": {
       "exists": true,
-      "sha256": "b60da14bb4b9fb6cedbc8e619d03d713fd2a85b4ed96137d135852c345c729e6"
+      "sha256": "fe32d8a1b75737d1a77592cb94949530d43fd0f759a7572419a0cb20b5aeb5d0"
     }
   }
 }

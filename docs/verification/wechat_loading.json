@@ -1,0 +1,28 @@
+{
+  "status": "build_and_native_compile_passed_simulator_unverified",
+  "setting": "requiredComponents",
+  "cold_start_benchmarked": false,
+  "phone_tested": false,
+  "placeholder_components_added": false,
+  "checked_at": "2026-10-31T14:49:05.013945+08:00",
+  "simulator_automation_status": "simulator_check_timeout",
+  "source_configuration_verified": true,
+  "compiled_configuration_verified": true,
+  "global_custom_components": 0,
+  "pages": 1,
+  "page_custom_component_declarations": 0,
+  "source_sha256": "aea0afbbec1e7dcf0beae9837b85d2406862d5ed95c6c55fd1bc169ca4a19d6c",
+  "compiled_app_json_sha256": "fe32d8a1b75737d1a77592cb94949530d43fd0f759a7572419a0cb20b5aeb5d0",
+  "frontend_checks": [
+    "typecheck",
+    "build:h5",
+    "build:mp-weixin"
+  ],
+  "native_checks": [
+    "wxml",
+    "wxss"
+  ],
+  "prior_model_deployment_zip_updated": false,
+  "source_package_will_be_updated": true,
+  "notes": "Current project and source package only; native simulator SDK timed out, manual interaction verification pending. No startup timing or memory reduction claimed."
+}

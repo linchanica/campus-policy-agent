@@ -10,6 +10,7 @@
   },
   "mp-weixin": {
     "appid": "wx819a8152776e26fa",
+    "lazyCodeLoading": "requiredComponents",
     "setting": {
       "es6": true,
       "minified": true
