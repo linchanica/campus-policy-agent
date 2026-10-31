@@ -92,5 +92,7 @@
     "invalid_capsule_fallback_cases": 3,
     "logical_pixels_not_multiplied_by_pixel_ratio": true
   },
-  "note": "Native simulator rectangle checks and render-binding recovery passed after project compile-cache cleanup and normal IDE restart. Element-tap SDK checks timed out; manual modal/sample confirmation pending. No phone or startup performance acceptance claimed."
+  "note": "Native simulator rectangle checks and render-binding recovery passed. User subsequently confirmed about-modal open/close and sample consultation manually. SDK element-tap timeout retained; no phone or startup performance acceptance claimed.",
+  "manual_interaction_confirmed": true,
+  "manual_interaction_report": "docs/verification/wechat_preview_interaction.json"
 }

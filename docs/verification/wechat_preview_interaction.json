@@ -1,10 +1,20 @@
 {
-  "status": "sdk_element_check_timeout_manual_confirmation_pending",
+  "status": "user_manual_preview_path_passed_sdk_timeout_retained",
   "simulator_only": true,
   "phone_tested": false,
   "example_consultation_only": true,
   "attempted_ui_element_tap_method": true,
   "real_ui_element_taps_verified": false,
-  "sample_consultation_verified": false,
-  "note": "Element-level SDK operation did not complete; do not count this as an interaction pass."
+  "sample_consultation_verified": true,
+  "note": "User confirmed about-modal open/close and midterm sample response after preview fixes. SDK element-tap operation still timed out and is not counted as an automated pass.",
+  "automation_status": "sdk_element_check_timeout",
+  "manual_user_report": {
+    "recorded_at": "2026-10-31T15:22:00.759979+08:00",
+    "source": "user_message",
+    "user_statement": "两项都正常",
+    "about_modal_open_and_close": true,
+    "midterm_sample_received_answer": true,
+    "scope": "用户在开发工具中确认当前预览的试用说明开关和中期考核示例；不代表手机真机、完整交互矩阵或正式发布。"
+  },
+  "sample_consultation_verification_method": "user_reported_manual"
 }
