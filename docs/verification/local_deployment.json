@@ -1,0 +1,117 @@
+{
+  "status": "pass",
+  "checked_at": "2026-10-31T11:53:03.891568+08:00",
+  "checks": [
+    {
+      "name": "fresh_bundle_hashes_and_vectors_valid",
+      "pass": true
+    },
+    {
+      "name": "no_live_users_or_sessions_migrated",
+      "pass": true
+    },
+    {
+      "name": "compiled_h5_served",
+      "pass": true
+    },
+    {
+      "name": "admin_page_served",
+      "pass": true
+    },
+    {
+      "name": "local_model_available_without_cloud_or_wechat_credentials",
+      "pass": true
+    },
+    {
+      "name": "anonymous_policy_access_denied",
+      "pass": true
+    },
+    {
+      "name": "deployment-first-consult_accepted",
+      "pass": true
+    },
+    {
+      "name": "deployment-first-consult_completed",
+      "pass": true
+    },
+    {
+      "name": "deployment-first-consult_source_ids_valid",
+      "pass": true
+    },
+    {
+      "name": "deployment-first-consult_real_qwen_grounded_quote",
+      "pass": true
+    },
+    {
+      "name": "student_admin_workspace_denied",
+      "pass": true
+    },
+    {
+      "name": "other_student_session_denied",
+      "pass": true
+    },
+    {
+      "name": "versioned_policy_contains_quoted_text",
+      "pass": true
+    },
+    {
+      "name": "registration_form_hash_matches_original",
+      "pass": true
+    },
+    {
+      "name": "qwen_path_stays_relative_after_real_inference",
+      "pass": true
+    },
+    {
+      "name": "bundle_immutable_files_unchanged_after_inference",
+      "pass": true
+    },
+    {
+      "name": "fictional_session_survives_own_server_restart",
+      "pass": true
+    },
+    {
+      "name": "deployment-after-restart_accepted",
+      "pass": true
+    },
+    {
+      "name": "deployment-after-restart_completed",
+      "pass": true
+    },
+    {
+      "name": "deployment-after-restart_source_ids_valid",
+      "pass": true
+    },
+    {
+      "name": "deployment-after-restart_real_qwen_grounded_quote",
+      "pass": true
+    },
+    {
+      "name": "archive_unchanged",
+      "pass": true
+    },
+    {
+      "name": "original_local_service_preserved",
+      "pass": true
+    }
+  ],
+  "passed": 23,
+  "archive_sha256": "9125eac3369b42a3b90d5a8c42887bab00119da677ec04b94b9b10b0a31de27a",
+  "fresh_bundle_hashes_verified": 265,
+  "models": [
+    "Qwen2.5-0.5B-Instruct",
+    "BAAI/bge-small-zh-v1.5"
+  ],
+  "real_inference_before_and_after_restart": true,
+  "model_hub_offline_mode": true,
+  "live_database_copied": false,
+  "credentials_copied": false,
+  "original_service_restarted": false,
+  "dependencies_reused_from_current_windows_venv": true,
+  "new_machine_install_tested": false,
+  "linux_or_docker_tested": false,
+  "cloud_deployed": false,
+  "wechat_published": false,
+  "scope": "Actual delivered ZIP extracted to a new directory; real loopback HTTP consultation, pinned offline BGE/Qwen, attachment hash, permissions and restart verified. Reuses installed Windows dependencies; not a production or phone acceptance.",
+  "duration_seconds": 66.8
+}

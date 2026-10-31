@@ -1,0 +1,37 @@
+{
+  "decision_date": "2026-10-31",
+  "user_decision": "先使用免费资源，后期按需要升级",
+  "authorized_new_spend_cny": 0,
+  "paid_upgrade_authorized": false,
+  "automatic_paid_renewal_authorized": false,
+  "overage_billing_authorized": false,
+  "status": "local_deployment_prepared_cloud_registration_deferred",
+  "provider_locked": false,
+  "candidate": {
+    "provider": "腾讯云",
+    "product": "轻量应用服务器免费试用",
+    "preferred_offer": "个企同享4核8GB、1个月、180GB系统盘；每日限量，实际资格及订单为准",
+    "alternative_offer": "2核4GB、1个月；当前本地模型的内存余量与响应需实测，不能保证满足",
+    "official_url": "https://cloud.tencent.com/act/pro/free",
+    "checked_date": "2026-10-31",
+    "use": "先做云端部署与容量测试，不代表正式公开发布"
+  },
+  "instance_id": null,
+  "region": null,
+  "expires_at": null,
+  "actual_order_total_cny": null,
+  "auto_renewal_enabled": null,
+  "traffic_overage_behavior_verified": false,
+  "domain": null,
+  "upgrade_strategy": "同平台先核实实例是否支持原地升配/续费；不支持时用校验过的源码、政策快照、向量索引与一致数据库备份迁移。模型路径与依赖按目标机器重建。",
+  "no_charge_rule": "只执行经核实不产生费用的步骤；充值、绑定支付/扣款授权、非零订单、自动转付费、超额按量资源或续费均不在当前授权内。",
+  "local_preparation": {
+    "verified_at": "2026-10-31T11:53:03.891568+08:00",
+    "archive": "校院政策咨询Agent本地部署包.zip",
+    "archive_sha256": "9125eac3369b42a3b90d5a8c42887bab00119da677ec04b94b9b10b0a31de27a",
+    "integration_checks_passed": 23,
+    "backend_and_export_regression_tests_passed": 92,
+    "new_machine_dependency_install_tested": false,
+    "linux_or_cloud_deployed": false
+  }
+}

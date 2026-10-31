@@ -1,15 +1,15 @@
 {
   "status": "pass",
-  "created_at": "2026-10-31T09:53:32.964790+08:00",
-  "snapshot": "20261031_095331_037351",
-  "files_verified": 327,
+  "created_at": "2026-10-31T11:45:52.942637+08:00",
+  "snapshot": "20261031_114550_116296",
+  "files_verified": 344,
   "restored_documents": 45,
-  "restored_release_id": "rel-26b14774f7dc4d96b76fc1ba703a567b",
+  "restored_release_id": "rel-b471767210db4a6597fd15318a7fe009",
   "restored_sessions": 0,
   "vector_chunks": 93,
   "restored_code_doctor_passed": true,
   "live_runtime_overwritten": false,
   "model_inference_retested": false,
   "scope": "实际复制到隔离目录，检查数据库与外键、原件、标准文本、全部已登记发布快照和活动指针、向量快照，并从恢复源码运行doctor；不是正式环境切换或模型权重恢复验收。",
-  "duration_ms": 1274
+  "duration_ms": 1767
 }

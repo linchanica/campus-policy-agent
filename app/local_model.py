@@ -25,7 +25,11 @@ def _ensure_loaded():
         info=model_info();torch.set_num_threads(2)
         _tokenizer=AutoTokenizer.from_pretrained(info['path'],local_files_only=True,trust_remote_code=False)
         _model=AutoModelForCausalLM.from_pretrained(info['path'],local_files_only=True,trust_remote_code=False,dtype=torch.float32)
-        _model.eval();info['status']='loaded_and_validated';(WORK/'local_model.json').write_text(json.dumps(info,ensure_ascii=False,indent=2),encoding='utf-8')
+        _model.eval();info['status']='loaded_and_validated'
+        # Keep bundled models relocatable after the first real inference.
+        model_path=Path(info['path'])
+        if model_path.is_relative_to(ROOT):info['path']=model_path.relative_to(ROOT).as_posix()
+        (WORK/'local_model.json').write_text(json.dumps(info,ensure_ascii=False,indent=2),encoding='utf-8')
 
 def generate_json(system,user,max_tokens=160):
     if not available():raise RuntimeError('本地画像模型不可用。')

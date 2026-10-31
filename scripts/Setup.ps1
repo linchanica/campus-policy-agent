@@ -1,5 +1,6 @@
-param([string]$Python='python',[switch]$DownloadModels)
+param([string]$Python='python',[switch]$DownloadModels,[switch]$UseBundledModels)
 $ErrorActionPreference='Stop'
+if ($DownloadModels -and $UseBundledModels) { throw '请选择下载模型或使用部署包自带模型，不能同时指定。' }
 $projectRoot=[System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 Set-Location -LiteralPath $projectRoot
 $venvPython=Join-Path $projectRoot '.venv/Scripts/python.exe'
@@ -9,7 +10,10 @@ if (-not (Test-Path -LiteralPath $venvPython)) {
 }
 & $venvPython -m pip install -r requirements.lock.txt
 if ($LASTEXITCODE -ne 0) { throw '依赖安装失败。' }
-if ($DownloadModels) {
+if ($UseBundledModels) {
+    & $venvPython scripts/verify_deployment_bundle.py
+    if ($LASTEXITCODE -ne 0) { throw '部署包完整性检查未通过；不覆盖已有索引。' }
+} elseif ($DownloadModels) {
     & $venvPython scripts/download_local_model.py
     if ($LASTEXITCODE -ne 0) { throw '本地模型下载失败。' }
     & $venvPython -m app.cli index --semantic
@@ -21,4 +25,4 @@ if ($LASTEXITCODE -ne 0) { throw '检索索引建立失败。' }
 if ($LASTEXITCODE -ne 0) { throw '项目工具配置失败。' }
 & $venvPython -m app.cli doctor
 if ($LASTEXITCODE -ne 0) { throw '项目检查失败。' }
-Write-Output '准备完成。运行 ./scripts/Start.ps1 启动本地服务。未下载模型时只有基线检索与程序规则，不代表语义模型已接入。'
+Write-Output '准备完成。运行 ./scripts/Start.ps1 启动本地服务。未下载或使用部署包模型时只有基线检索与程序规则，不代表语义模型已接入。'

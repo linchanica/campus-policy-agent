@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-10-31T11:31:14.370957+08:00",
+  "operation": "read_only_inventory",
+  "formal_release_ready": false,
+  "budget": {
+    "authorized_new_spend_cny": 0,
+    "free_resource_provisioned": false
+  },
+  "observed": {
+    "production_startup_guard_present": true,
+    "baseline_documents": 45,
+    "baseline_in_scope": 31,
+    "baseline_business_reviewed": 0,
+    "baseline_in_scope_with_https_source": 0,
+    "local_model_manifest_present": true,
+    "local_model_path_requires_windows_migration": true,
+    "baseline_semantic_index_present": true,
+    "mini_program_build_present": true,
+    "mini_program_build_contains_loopback_api": true,
+    "candidate_api_has_public_https_origin_syntax": false,
+    "wechat_device_test_recorded": false,
+    "wechat_upload_recorded": false,
+    "readable": true,
+    "verified_school_staff_count": 0,
+    "active_release_kind": "provided_baseline"
+  },
+  "unverified": [
+    "free_resource_eligibility_and_zero_cost_order",
+    "cloud_linux_runtime_and_model_capacity",
+    "remote_tls_and_legal_domain_configuration",
+    "platform_account_filing_and_category",
+    "formal_independent_policy_review_and_verified_staff_identity",
+    "production_configuration_and_recovery_acceptance",
+    "phone_end_to_end_acceptance"
+  ],
+  "note": "仅盘点可见状态，不验证DNS/证书/备案，不执行登录、不读取.env、不上传数据或部署。正式就绪保持false；不得只修改本报告或删除启动阻断来宣称上线。"
+}
