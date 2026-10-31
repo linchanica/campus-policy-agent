@@ -1,6 +1,6 @@
 {
   "document_version": "implementation-20261031-management-release",
-  "updated_at": "2026-10-31T09:55:13.842443+08:00",
+  "updated_at": "2026-10-31T10:55:52.193610+08:00",
   "overall_status": "local_trial_core_implemented_full_plan_acceptance_pending",
   "note": "completed_local表示限定本地范围的实现及自动验证；不代表学校业务审核、真实微信/WorkBuddy客户端、人工界面或生产验收。完整方案仍有校方认证、生产配置与全面事实核验等技术和外部接入工作。保留原始60项180个操作。",
   "task_count": 60,
@@ -1416,15 +1416,17 @@
       "evidence": [
         "app/identity.py",
         "app/auth.py",
-        "tests/test_identity.py"
+        "tests/test_identity.py",
+        "docs/verification/wechat_integration.json",
+        "docs/verification/wechat_native_compile.json"
       ],
-      "verified_at": "2026-10-31T09:55:13.842443+08:00",
-      "note": "服务端微信code交换、短期opaque凭证、单设备退出、显式访客合并及一次性跨端绑定已实现并用假微信响应验证；真实微信交换未实测。学校SSO适配仍须取得具体协议后开发。",
+      "verified_at": "2026-10-31T10:55:52.193610+08:00",
+      "note": "真实微信wx.login与本机服务端code交换已在模拟器通过，身份为student且未验证学校身份。原有显式绑定和单设备退出已实现；真实跨端绑定按钮、真机及学校SSO仍待联调。",
       "operation_results": [
         {
           "operation": "落实网页认证及小程序服务端登录交换",
           "status": "completed_local",
-          "note": "服务端微信code交换、短期opaque凭证、单设备退出、显式访客合并及一次性跨端绑定已实现并用假微信响应验证；真实微信交换未实测。学校SSO适配仍须取得具体协议后开发。",
+          "note": "真实微信wx.login与本机服务端code交换已在模拟器通过，身份为student且未验证学校身份。原有显式绑定和单设备退出已实现；真实跨端绑定按钮、真机及学校SSO仍待联调。",
           "evidence": [
             "app/identity.py",
             "app/auth.py",
@@ -1434,7 +1436,7 @@
         {
           "operation": "建立微信和网页身份到业务用户的验证绑定",
           "status": "completed_local",
-          "note": "服务端微信code交换、短期opaque凭证、单设备退出、显式访客合并及一次性跨端绑定已实现并用假微信响应验证；真实微信交换未实测。学校SSO适配仍须取得具体协议后开发。",
+          "note": "真实微信wx.login与本机服务端code交换已在模拟器通过，身份为student且未验证学校身份。原有显式绑定和单设备退出已实现；真实跨端绑定按钮、真机及学校SSO仍待联调。",
           "evidence": [
             "app/identity.py",
             "app/auth.py",
@@ -1444,7 +1446,7 @@
         {
           "operation": "实现退出、过期、会话归属与限流",
           "status": "partial",
-          "note": "服务端微信code交换、短期opaque凭证、单设备退出、显式访客合并及一次性跨端绑定已实现并用假微信响应验证；真实微信交换未实测。学校SSO适配仍须取得具体协议后开发。",
+          "note": "真实微信wx.login与本机服务端code交换已在模拟器通过，身份为student且未验证学校身份。原有显式绑定和单设备退出已实现；真实跨端绑定按钮、真机及学校SSO仍待联调。",
           "evidence": [
             "app/identity.py",
             "app/auth.py",
@@ -1812,15 +1814,17 @@
       "evidence": [
         "frontend/student/src/pages/index/index.vue",
         "docs/verification/live_smoke.json",
-        "docs/verification/manual_ui.json"
+        "docs/verification/manual_ui.json",
+        "docs/verification/wechat_integration.json",
+        "docs/verification/wechat_native_compile.json"
       ],
-      "verified_at": "2026-10-31T09:55:13.842443+08:00",
-      "note": "事项、问答、轮询、错误恢复、画像模型候选和身份更新已实现并构建；用户已手动验证原文、登记表下载及资料修改重新核对成功；键盘、弱网及完整界面路径仍待验收。",
+      "verified_at": "2026-10-31T10:55:52.193610+08:00",
+      "note": "网页基本操作已由用户验收；微信工程已成功导入，修复WXSS通配选择器错误并恢复模拟器首页。真实原生API咨询通过，微信按钮路径、键盘与弱网完整矩阵仍未验收。 用户已手动确认模拟器示例点击及收到回答成功。",
       "operation_results": [
         {
           "operation": "实现三个事项入口和范围说明",
           "status": "completed_local",
-          "note": "事项、问答、轮询、错误恢复、画像模型候选和身份更新已实现并构建；用户已手动验证原文、登记表下载及资料修改重新核对成功；键盘、弱网及完整界面路径仍待验收。",
+          "note": "网页基本操作已由用户验收；微信工程已成功导入，修复WXSS通配选择器错误并恢复模拟器首页。真实原生API咨询通过，微信按钮路径、键盘与弱网完整矩阵仍未验收。 用户已手动确认模拟器示例点击及收到回答成功。",
           "evidence": [
             "frontend/student/src/pages/index/index.vue",
             "docs/verification/live_smoke.json",
@@ -1830,7 +1834,7 @@
         {
           "operation": "接入消息提交、轮询与错误恢复",
           "status": "completed_local",
-          "note": "事项、问答、轮询、错误恢复、画像模型候选和身份更新已实现并构建；用户已手动验证原文、登记表下载及资料修改重新核对成功；键盘、弱网及完整界面路径仍待验收。",
+          "note": "网页基本操作已由用户验收；微信工程已成功导入，修复WXSS通配选择器错误并恢复模拟器首页。真实原生API咨询通过，微信按钮路径、键盘与弱网完整矩阵仍未验收。 用户已手动确认模拟器示例点击及收到回答成功。",
           "evidence": [
             "frontend/student/src/pages/index/index.vue",
             "docs/verification/live_smoke.json",
@@ -1840,7 +1844,7 @@
         {
           "operation": "处理发送锁定、重试、键盘和长文本滚动",
           "status": "partial",
-          "note": "事项、问答、轮询、错误恢复、画像模型候选和身份更新已实现并构建；用户已手动验证原文、登记表下载及资料修改重新核对成功；键盘、弱网及完整界面路径仍待验收。",
+          "note": "网页基本操作已由用户验收；微信工程已成功导入，修复WXSS通配选择器错误并恢复模拟器首页。真实原生API咨询通过，微信按钮路径、键盘与弱网完整矩阵仍未验收。 用户已手动确认模拟器示例点击及收到回答成功。",
           "evidence": [
             "frontend/student/src/pages/index/index.vue",
             "docs/verification/live_smoke.json",
@@ -1928,15 +1932,17 @@
       "completed_at": null,
       "evidence": [
         "frontend/student/src/services/files.ts",
-        "docs/verification/live_smoke.json"
+        "docs/verification/live_smoke.json",
+        "docs/verification/wechat_integration.json",
+        "docs/verification/wechat_native_compile.json"
       ],
-      "verified_at": "2026-10-31T09:55:13.842443+08:00",
-      "note": "双端办理卡、旧版详情与历史附件版本下载已构建，HTTP原件哈希通过；用户已验证网页原文与登记表下载；微信真机预览及更多附件仍待验证。",
+      "verified_at": "2026-10-31T10:55:52.193610+08:00",
+      "note": "网页原文和登记表下载已由用户验收；微信模拟器原生downloadFile已下载登记表且SHA256与原件一致。模拟器文件预览、更多附件及手机真机仍待验证。",
       "operation_results": [
         {
           "operation": "按响应渲染条件、材料、步骤和时间",
           "status": "completed_local",
-          "note": "双端办理卡、旧版详情与历史附件版本下载已构建，HTTP原件哈希通过；用户已验证网页原文与登记表下载；微信真机预览及更多附件仍待验证。",
+          "note": "网页原文和登记表下载已由用户验收；微信模拟器原生downloadFile已下载登记表且SHA256与原件一致。模拟器文件预览、更多附件及手机真机仍待验证。",
           "evidence": [
             "frontend/student/src/services/files.ts",
             "docs/verification/live_smoke.json"
@@ -1945,7 +1951,7 @@
         {
           "operation": "实现来源详情与附件状态",
           "status": "completed_local",
-          "note": "双端办理卡、旧版详情与历史附件版本下载已构建，HTTP原件哈希通过；用户已验证网页原文与登记表下载；微信真机预览及更多附件仍待验证。",
+          "note": "网页原文和登记表下载已由用户验收；微信模拟器原生downloadFile已下载登记表且SHA256与原件一致。模拟器文件预览、更多附件及手机真机仍待验证。",
           "evidence": [
             "frontend/student/src/services/files.ts",
             "docs/verification/live_smoke.json"
@@ -1954,7 +1960,7 @@
         {
           "operation": "分别适配网页与微信文件及外链处理",
           "status": "partial",
-          "note": "双端办理卡、旧版详情与历史附件版本下载已构建，HTTP原件哈希通过；用户已验证网页原文与登记表下载；微信真机预览及更多附件仍待验证。",
+          "note": "网页原文和登记表下载已由用户验收；微信模拟器原生downloadFile已下载登记表且SHA256与原件一致。模拟器文件预览、更多附件及手机真机仍待验证。",
           "evidence": [
             "frontend/student/src/services/files.ts",
             "docs/verification/live_smoke.json"
@@ -2037,15 +2043,17 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "docs/verification/frontend_build.json"
+        "docs/verification/frontend_build.json",
+        "docs/verification/wechat_integration.json",
+        "docs/verification/wechat_native_compile.json"
       ],
-      "verified_at": "2026-10-31T09:55:13.842443+08:00",
-      "note": "类型检查、H5和mp-weixin构建通过，产物含真实AppID；DCloud全局appid统计提示不等于微信AppID缺失。网页原文、下载、资料修改三项人工操作通过；微信真机与移动布局仍待验收。",
+      "verified_at": "2026-10-31T10:55:52.193610+08:00",
+      "note": "类型检查、H5、mp-weixin及微信官方WXML/WXSS原生语法编译均通过。实际模拟器首页显示成功；真机、移动端完整布局及按钮路径仍待验收。",
       "operation_results": [
         {
           "operation": "分别执行H5与mp-weixin构建",
           "status": "completed_local",
-          "note": "类型检查、H5和mp-weixin构建通过，产物含真实AppID；DCloud全局appid统计提示不等于微信AppID缺失。网页原文、下载、资料修改三项人工操作通过；微信真机与移动布局仍待验收。",
+          "note": "类型检查、H5、mp-weixin及微信官方WXML/WXSS原生语法编译均通过。实际模拟器首页显示成功；真机、移动端完整布局及按钮路径仍待验收。",
           "evidence": [
             "docs/verification/frontend_build.json"
           ]
@@ -2053,7 +2061,7 @@
         {
           "operation": "检查手机、桌面、微信真机布局与文件能力",
           "status": "completed_local",
-          "note": "类型检查、H5和mp-weixin构建通过，产物含真实AppID；DCloud全局appid统计提示不等于微信AppID缺失。网页原文、下载、资料修改三项人工操作通过；微信真机与移动布局仍待验收。",
+          "note": "类型检查、H5、mp-weixin及微信官方WXML/WXSS原生语法编译均通过。实际模拟器首页显示成功；真机、移动端完整布局及按钮路径仍待验收。",
           "evidence": [
             "docs/verification/frontend_build.json"
           ]
@@ -2061,7 +2069,7 @@
         {
           "operation": "记录模板、工具、设备和输出目录",
           "status": "partial",
-          "note": "类型检查、H5和mp-weixin构建通过，产物含真实AppID；DCloud全局appid统计提示不等于微信AppID缺失。网页原文、下载、资料修改三项人工操作通过；微信真机与移动布局仍待验收。",
+          "note": "类型检查、H5、mp-weixin及微信官方WXML/WXSS原生语法编译均通过。实际模拟器首页显示成功；真机、移动端完整布局及按钮路径仍待验收。",
           "evidence": [
             "docs/verification/frontend_build.json"
           ]
@@ -2380,15 +2388,17 @@
       "actual_operator": "Codex（技术实现与自动验证；不代表学校业务审核）",
       "completed_at": null,
       "evidence": [
-        "docs/verification/manual_ui.json"
+        "docs/verification/manual_ui.json",
+        "docs/verification/wechat_integration.json",
+        "docs/verification/wechat_native_compile.json"
       ],
-      "verified_at": "2026-10-31T09:55:13.842443+08:00",
-      "note": "原生窗口控制因无法可靠确认URL而停止，未绕过。用户已手动验收网页原文、下载和修改资料重新核对；手机浏览器、微信真机及完整矩阵仍未实测。",
+      "verified_at": "2026-10-31T10:55:52.193610+08:00",
+      "note": "网页原文、下载及资料修改由用户验收。微信模拟器真实登录、原生请求、咨询和附件哈希通过；自动元素查询在该环境等待，因此不把原生API测试当作按钮验收；手机真机尚未实测。 用户已手动确认模拟器示例点击及收到回答成功。",
       "operation_results": [
         {
           "operation": "分别操作桌面、手机浏览器与微信真机",
           "status": "completed_local",
-          "note": "原生窗口控制因无法可靠确认URL而停止，未绕过。用户已手动验收网页原文、下载和修改资料重新核对；手机浏览器、微信真机及完整矩阵仍未实测。",
+          "note": "网页原文、下载及资料修改由用户验收。微信模拟器真实登录、原生请求、咨询和附件哈希通过；自动元素查询在该环境等待，因此不把原生API测试当作按钮验收；手机真机尚未实测。 用户已手动确认模拟器示例点击及收到回答成功。",
           "evidence": [
             "docs/verification/manual_ui.json"
           ]
@@ -2396,7 +2406,7 @@
         {
           "operation": "固定账号、画像、快照和时点对比结果",
           "status": "partial",
-          "note": "原生窗口控制因无法可靠确认URL而停止，未绕过。用户已手动验收网页原文、下载和修改资料重新核对；手机浏览器、微信真机及完整矩阵仍未实测。",
+          "note": "网页原文、下载及资料修改由用户验收。微信模拟器真实登录、原生请求、咨询和附件哈希通过；自动元素查询在该环境等待，因此不把原生API测试当作按钮验收；手机真机尚未实测。 用户已手动确认模拟器示例点击及收到回答成功。",
           "evidence": [
             "docs/verification/manual_ui.json"
           ]
@@ -2404,7 +2414,7 @@
         {
           "operation": "检查弱网、返回前台、输入、引用和附件",
           "status": "external_dependency",
-          "note": "原生窗口控制因无法可靠确认URL而停止，未绕过。用户已手动验收网页原文、下载和修改资料重新核对；手机浏览器、微信真机及完整矩阵仍未实测。",
+          "note": "网页原文、下载及资料修改由用户验收。微信模拟器真实登录、原生请求、咨询和附件哈希通过；自动元素查询在该环境等待，因此不把原生API测试当作按钮验收；手机真机尚未实测。 用户已手动确认模拟器示例点击及收到回答成功。",
           "evidence": [
             "docs/verification/manual_ui.json"
           ]
@@ -2697,15 +2707,17 @@
       "completed_at": null,
       "evidence": [
         "frontend/student/src/manifest.json",
-        "docs/资源台账.json"
+        "docs/资源台账.json",
+        "docs/verification/wechat_integration.json",
+        "docs/verification/wechat_native_compile.json"
       ],
-      "verified_at": "2026-10-31T09:55:13.842443+08:00",
-      "note": "用户已注册账号，AppID写入源码与真实mp-weixin产物，AppSecret只在本机保存；开发工具导入、微信真实登录、域名和体验版待实际联调。",
+      "verified_at": "2026-10-31T10:55:52.193610+08:00",
+      "note": "微信开发者工具2.01.2510290已安装登录，服务端口由用户开启，真实AppID工程已导入。模拟器真实code交换、咨询及下载通过；HTTPS域名、真机、体验版上传和平台发布仍待完成。 用户已手动确认模拟器示例点击及收到回答成功。",
       "operation_results": [
         {
           "operation": "导入锁定构建产物并填写实际AppID",
           "status": "completed_local",
-          "note": "用户已注册账号，AppID写入源码与真实mp-weixin产物，AppSecret只在本机保存；开发工具导入、微信真实登录、域名和体验版待实际联调。",
+          "note": "微信开发者工具2.01.2510290已安装登录，服务端口由用户开启，真实AppID工程已导入。模拟器真实code交换、咨询及下载通过；HTTPS域名、真机、体验版上传和平台发布仍待完成。 用户已手动确认模拟器示例点击及收到回答成功。",
           "evidence": [
             "frontend/student/src/manifest.json",
             "docs/资源台账.json"
@@ -2714,7 +2726,7 @@
         {
           "operation": "配置服务器域名及体验人员",
           "status": "partial",
-          "note": "用户已注册账号，AppID写入源码与真实mp-weixin产物，AppSecret只在本机保存；开发工具导入、微信真实登录、域名和体验版待实际联调。",
+          "note": "微信开发者工具2.01.2510290已安装登录，服务端口由用户开启，真实AppID工程已导入。模拟器真实code交换、咨询及下载通过；HTTPS域名、真机、体验版上传和平台发布仍待完成。 用户已手动确认模拟器示例点击及收到回答成功。",
           "evidence": [
             "frontend/student/src/manifest.json",
             "docs/资源台账.json"
@@ -2723,7 +2735,7 @@
         {
           "operation": "用真机验证与同一后端的全部核心流程",
           "status": "external_dependency",
-          "note": "用户已注册账号，AppID写入源码与真实mp-weixin产物，AppSecret只在本机保存；开发工具导入、微信真实登录、域名和体验版待实际联调。",
+          "note": "微信开发者工具2.01.2510290已安装登录，服务端口由用户开启，真实AppID工程已导入。模拟器真实code交换、咨询及下载通过；HTTPS域名、真机、体验版上传和平台发布仍待完成。 用户已手动确认模拟器示例点击及收到回答成功。",
           "evidence": [
             "frontend/student/src/manifest.json",
             "docs/资源台账.json"

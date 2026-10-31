@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-31T09:55:13.842443+08:00",
+  "updated_at": "2026-10-31T10:55:52.193610+08:00",
   "resources": [
     {
       "id": "R01",
@@ -12,7 +12,7 @@
       "resource": "微信账号与AppID",
       "state": "用户已注册；源码和编译产物均已写入真实AppID",
       "appid": "wx819a8152776e26fa",
-      "secret_state": "用户确认已在本机管理页保存；本机配置布尔核对通过；不记录或分发密钥"
+      "secret_state": "本机配置已通过模拟器真实code交换；密钥不回显或分发。"
     },
     {
       "id": "R03",
@@ -47,8 +47,12 @@
     {
       "id": "R08",
       "resource": "微信开发者工具和真机",
-      "state": "用户正在下载微信开发者工具，安装与扫码登录待本人完成；尚未导入工程或完成真实code交换、真机与体验版",
-      "next": "本人安装官方开发者工具并扫码登录，导入真实构建目录；手机需可达HTTPS API"
+      "state": "已安装登录并导入工程；原生编译、模拟器显示、真实wx.login/服务端交换、咨询和登记表下载哈希已通过；未完成真机或体验版",
+      "next": "落实手机可达HTTPS API，完成真机、按钮路径、文件预览、跨端绑定与体验版测试",
+      "installation_login_user_reported": true,
+      "project_import_verified": true,
+      "real_code_exchange_verified": true,
+      "device_tested": false
     },
     {
       "id": "R09",

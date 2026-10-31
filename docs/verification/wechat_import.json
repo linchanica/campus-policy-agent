@@ -1,0 +1,22 @@
+{
+  "status": "simulator_core_flows_passed",
+  "updated_at": "2026-10-31T10:55:52.193610+08:00",
+  "cli_import_verified": true,
+  "appid_matches": true,
+  "native_wxml_wxss_compile_passed": true,
+  "simulator_home_render_verified": true,
+  "real_wechat_exchange_passed": true,
+  "native_consultation_passed": true,
+  "native_attachment_hash_passed": true,
+  "ui_button_path_tested": false,
+  "device_tested": false,
+  "uploaded": false,
+  "published": false,
+  "fixed_issue": "官方WXSS编译器拒绝App.vue生成的全局通配选择器*，已改为显式元素选择器。",
+  "tool_recovery": "工具卡住后正常退出并使用官方--disable-gpu参数重开；不认定图形驱动为唯一原因。",
+  "automation_limitation": "官方SDK的元素选择接口在此环境等待；原生API测试与页面截图分别记录。",
+  "screenshot": "docs/verification/wechat-simulator.png",
+  "integration_report": "docs/verification/wechat_integration.json",
+  "user_reported_sample_chat_pass": true,
+  "full_ui_matrix_tested": false
+}

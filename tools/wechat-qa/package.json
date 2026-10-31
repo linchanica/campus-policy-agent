@@ -1,0 +1,11 @@
+{
+  "name": "campus-policy-wechat-local-qa",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "miniprogram-automator": "0.13.0"
+  },
+  "scripts": {
+    "verify": "node integration.cjs"
+  }
+}

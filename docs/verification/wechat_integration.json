@@ -1,0 +1,39 @@
+{
+  "status": "pass",
+  "real_platform_apis": true,
+  "mocked_login": false,
+  "simulator_only": true,
+  "device_tested": false,
+  "ui_button_path_tested": false,
+  "page_created": true,
+  "native_network_connected": true,
+  "wechat_login": {
+    "http_status": 200,
+    "passed": true,
+    "school_identity_verified": false,
+    "role": "student"
+  },
+  "consultation": {
+    "fictional_input": true,
+    "decision": "information",
+    "source_ids_valid": true,
+    "policy_keys": [
+      "p032"
+    ],
+    "materials_have_registration_form": true,
+    "generation_mode": "local_llm_evidence_and_rules"
+  },
+  "attachment": {
+    "download_status": 200,
+    "bytes": 33244,
+    "sha256_matches_original": true
+  },
+  "student_admin_access_denied": true,
+  "completed_at": "2026-10-31T02:49:44.122Z",
+  "sdk_version": "0.13.0",
+  "devtools_version": "2.01.2510290",
+  "runtime_sdk_version": "3.17.5",
+  "software_rendering_used": true,
+  "user_reported_sample_chat_pass": true,
+  "ui_button_path_note": "自动SDK元素查询未完成；用户另外手动确认示例点击和回答成功。"
+}

@@ -1,6 +1,6 @@
 {
   "status": "partial_pass_user_reported",
-  "updated_at": "2026-10-31T09:55:13.842443+08:00",
+  "updated_at": "2026-10-31T10:55:52.193610+08:00",
   "user_reported_admin_login_and_secret_save": true,
   "user_reported_student_checks": {
     "source_detail": true,
@@ -12,5 +12,14 @@
   "reason": "原生电脑控制安全检查无法可靠确认当前浏览器URL，工具要求停止；已停止且未绕过。",
   "student_ui_manual_feedback": "用户回复：原文、下载、资料修改均成功。仅记录这些已实际反馈的路径。",
   "wechat_real_device_tested": false,
-  "workbuddy_real_client_tested": false
+  "workbuddy_real_client_tested": false,
+  "wechat_tool_install_login_user_reported": true,
+  "wechat_project_import_verified": true,
+  "wechat_simulator_render_verified": true,
+  "wechat_real_login_native_api_verified": true,
+  "wechat_native_api_consultation_verified": true,
+  "wechat_native_file_hash_verified": true,
+  "wechat_ui_button_paths_verified": false,
+  "wechat_sample_chat_user_reported_pass": true,
+  "wechat_user_feedback": "用户确认在模拟器点击中期考核示例并正常收到回答。"
 }

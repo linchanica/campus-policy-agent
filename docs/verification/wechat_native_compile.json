@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "scope": "官方本机WXML/WXSS语法检查；不代表模拟器、真机或平台审核通过。",
+  "files": {
+    "pages/index/index.wxml": "ad0e4c909a8c0686893d7aad7d3539b9225b56c4a6594b1f2cfbe96b7f79b1f9",
+    "app.wxss": "41e62a397bf727a3c637abda159dfd3fedaa0ad1be888cf919955b49d0e227c3",
+    "pages/index/index.wxss": "9ccb9a6d3c15e195b708f660cd1e9130a500d37529b71f985d8a31c87863d190"
+  },
+  "checks": [
+    {
+      "name": "wxml",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "duration_ms": 46
+    },
+    {
+      "name": "wxss",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "duration_ms": 35
+    }
+  ]
+}
